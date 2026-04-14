@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:background="@drawable/fundo_laranja"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="700dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="188dp"
+            android:layout_height="73dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/logo_brilhakids" />
+
+        <!-- Texto de boas-vindas -->
+        <TextView
+            android:id="@+id/tvBemVindo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adigianaui"
+            android:text="Bem-vindo ao BrilhaKids,"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#D50326"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/tvDescricao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adigianaui"
+            android:text="Um espaço onde você pode se divertir e\naprender ao mesmo tempo!"
+            android:textSize="14sp"
+            android:textColor="#444444"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/tvConecte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adigianaui"
+            android:text="Conecte-se"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#D50326"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/etNome"
+            android:layout_width="263dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/edittext_rounded_rosa"
+            android:fontFamily="@font/adigianaui"
+            android:hint="Nome de Usuário "
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#FFFFFF" />
+
+        <!-- E-mail -->
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="263dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/edittext_rounded_rosa"
+            android:fontFamily="@font/adigianaui"
+            android:hint="E-mail"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/sexo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adigianaui"
+            android:text="Qual o seu Gênero?"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#D50326" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupSexo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioMasculino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/adigianaui"
+                android:paddingStart="8dp"
+                android:text="Masculino"
+                android:textColor="#D50326"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/radioFeminino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Feminino"
+                android:paddingStart="8dp"
+                android:buttonTint="#D50326"
+                android:fontFamily="@font/adigianaui"
+                android:textStyle="bold"
+                android:textColor="#D50326"/>
+        </RadioGroup>
+
+        <!-- Senha -->
+        <EditText
+            android:id="@+id/etSenha"
+            android:layout_width="263dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:hint="Senha..."
+            android:background="@drawable/edittext_rounded_rosa"
+            android:fontFamily="@font/adigianaui"
+            android:padding="12dp"
+            android:inputType="textPassword"
+            android:textColor="#000000"
+            android:textColorHint="#FFFFFF"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etReptSenha"
+            android:layout_width="263dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:hint="Repetir Senha..."
+            android:background="@drawable/edittext_rounded_rosa"
+            android:fontFamily="@font/adigianaui"
+            android:padding="12dp"
+            android:inputType="textPassword"
+            android:textColor="#000000"
+            android:textColorHint="#FFFFFF"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Checkbox -->
+        <CheckBox
+            android:id="@+id/cbMostrarSenha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adigianaui"
+            android:text="Mostrar Senha"
+            android:textColor="#2D2D2D"
+            android:layout_marginBottom="16dp"
+            android:buttonTint="#D10326" />
+
+        <!-- Botão Entrar -->
+        <Button
+            android:id="@+id/btnCadastrar"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="#D30326"
+            android:fontFamily="@font/adigianaui"
+            android:text="Criar Conta"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+
+        <!-- Esqueceu e Criar Conta -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"/>
+    </LinearLayout>
+</ScrollView>

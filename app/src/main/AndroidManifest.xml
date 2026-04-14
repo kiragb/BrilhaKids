@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication"
+        tools:targetApi="31">
+        <activity
+            android:name=".MeuPerfil"
+            android:exported="false" />
+        <activity
+            android:name=".SobreNos"
+            android:exported="false" />
+        <activity
+            android:name=".Numeros"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true" />
+        <activity
+            android:name=".Quarto"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true" />
+        <activity
+            android:name=".Formas"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true" />
+        <activity
+            android:name=".Chefinho"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true" />
+        <activity
+            android:name=".Alfabeto"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true" />
+        <activity
+            android:name=".Banho"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true" />
+        <activity
+            android:name=".Coleta"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true" />
+        <activity
+            android:name=".Mariana"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true" />
+        <activity
+            android:name=".Amigossauro"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true" />
+        <activity
+            android:name=".Selvagens"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true" />
+        <activity
+            android:name=".Fazenda"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true" />
+        <activity
+            android:name=".Domesticos"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true" />
+        <activity
+            android:name=".Reciclar"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true" />
+        <activity
+            android:name=".Cuidar"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true" />
+        <activity
+            android:name=".Organizacao"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true" />
+        <activity
+            android:name=".PalavrasMagicas"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.myapplication.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".EscovarOsDentinhos"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true" />
+        <activity
+            android:name=".Matematica"
+            android:exported="false" />
+        <activity
+            android:name=".Vocabulario"
+            android:exported="false" />
+        <activity
+            android:name=".PreservandoANatureza"
+            android:exported="false" />
+        <activity
+            android:name=".AcoesCotidianas"
+            android:exported="false" />
+        <activity
+            android:name=".FaleConosco"
+            android:exported="false" />
+        <activity
+            android:name=".Dicas"
+            android:exported="false" />
+        <activity
+            android:name=".Tutoriais"
+            android:exported="false" />
+        <activity
+            android:name=".Musicas"
+            android:exported="false" />
+        <activity
+            android:name=".Licoes"
+            android:exported="false" />
+        <activity
+            android:name=".JogosVirtuais"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.BrilhaKids.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Suas outras activities -->
+        <activity
+            android:name=".MainLoggedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AlterarSenhaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmailEnviadoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DBHelper"
+            android:exported="false" />
+        <activity
+            android:name=".RecuperarSenhaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CadastroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Tema principal da aplicação -->
+    <style name="Theme.MyApplication" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/white</item> <!-- fundo branco, sem splash automática -->
+        <item name="colorPrimary">#D50326</item>
+        <item name="colorPrimaryVariant">#B2021E</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#F48FB1</item>
+        <item name="colorControlActivated">#D50326</item>
+    </style>
+
+    <style name="Theme.BrilhaKids.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Fundo branco evita splash do sistema -->
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowSplashScreenBackground">@null</item> <!-- Android 12+ -->
+        <item name="android:windowSplashScreenAnimatedIcon">@null</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@null</item>
+    </style>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.BrilhaKids.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Fundo branco evita splash do sistema -->
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowSplashScreenBackground">@null</item> <!-- Android 12+ -->
+        <item name="android:windowSplashScreenAnimatedIcon">@null</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@null</item>
+    </style>
+</resources>

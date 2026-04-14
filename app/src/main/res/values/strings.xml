@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">BrilhaKids</string>
+    <string name="label_sublinhado"><u>Cancelar</u></string>
+    <string name="label_sublinhado2"><u>Reenviar E-mail</u></string>
+    <string name="Novasenha"><u>Nova Senha</u></string>
+    <string name="Confirme"><u>Confirme a Senha</u></string>
+    <string name="open_drawer">Abrir menu</string>
+    <string name="close_drawer">Fechar menu</string>
+
+
+</resources>
+

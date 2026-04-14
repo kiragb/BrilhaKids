@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFAE7">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:background="#FFFAE7">
+
+            <ImageView
+                android:id="@+id/menuIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/ic_menu"
+                android:contentDescription="Menu"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="Logo BrilhaKids"
+                android:src="@drawable/logo_brilhakids"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@id/menuIcon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/fundo_laranja"
+                android:layout_width="365dp"
+                android:layout_height="654dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/fundo_laranja"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/logo">
+
+                <TextView
+                    android:id="@+id/tvOlaUsuario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/adigianaui"
+                    android:text="Ações Cotidianas"
+                    android:textColor="#2573E9"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/cardescovar"
+                    android:layout_width="317dp"
+                    android:layout_height="148dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="28dp"
+                    android:background="@drawable/bg_branco"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvOlaUsuario" />
+
+                <ImageView
+                    android:id="@+id/imageelmoescovar"
+                    android:layout_width="120dp"
+                    android:layout_height="103dp"
+                    android:layout_marginTop="36dp"
+                    android:src="@drawable/elmo"
+                    app:layout_constraintEnd_toStartOf="@+id/imagepastaescovar"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@id/cardescovar"
+                    app:layout_constraintTop_toTopOf="@id/cardescovar" />
+
+                <ImageView
+                    android:id="@+id/imagepastaescovar"
+                    android:layout_width="130dp"
+                    android:layout_height="98dp"
+                    android:layout_marginTop="40dp"
+                    android:src="@drawable/pasta"
+                    app:layout_constraintEnd_toEndOf="@id/cardescovar"
+                    app:layout_constraintHorizontal_bias="0.791"
+                    app:layout_constraintStart_toStartOf="@id/cardescovar"
+                    app:layout_constraintTop_toTopOf="@id/cardescovar" />
+
+                <TextView
+                    android:id="@+id/textescovar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/adigianaui"
+                    android:text="Escovando os dentinhos"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/cardescovar"
+                    app:layout_constraintHorizontal_bias="0.54"
+                    app:layout_constraintStart_toStartOf="@id/cardescovar"
+                    app:layout_constraintTop_toTopOf="@id/cardescovar" />
+
+                <ImageView
+                    android:id="@+id/tartaruga"
+                    android:layout_width="151dp"
+                    android:layout_height="159dp"
+                    android:layout_marginTop="16dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/menina2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.06"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardescovar" />
+
+                <ImageView
+                    android:id="@+id/cardmatematica"
+                    android:layout_width="317dp"
+                    android:layout_height="148dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_marrom"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tartaruga" />
+
+                <ImageView
+                    android:id="@+id/imagematematica"
+                    android:layout_width="161dp"
+                    android:layout_height="105dp"
+                    android:layout_marginTop="40dp"
+                    android:src="@drawable/mika"
+                    app:layout_constraintEnd_toEndOf="@id/cardmatematica"
+                    app:layout_constraintHorizontal_bias="0.544"
+                    app:layout_constraintStart_toStartOf="@id/cardmatematica"
+                    app:layout_constraintTop_toTopOf="@id/cardmatematica" />
+
+                <TextView
+                    android:id="@+id/textmatematica"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/adigianaui"
+                    android:text="Organização com a Mika"
+                    android:textAlignment="center"
+                    android:textColor="#943b0c"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/imagematematica"
+                    app:layout_constraintStart_toStartOf="@id/cardmatematica"
+                    app:layout_constraintEnd_toEndOf="@id/cardmatematica"
+                    app:layout_constraintTop_toTopOf="@id/cardmatematica" />
+
+                <ImageView
+                    android:id="@+id/cardvocabulario"
+                    android:layout_width="148dp"
+                    android:layout_height="144dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@drawable/bg_castanho"
+                    app:layout_constraintBottom_toTopOf="@+id/cardmatematica"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.758"
+                    app:layout_constraintStart_toEndOf="@+id/tartaruga"
+                    app:layout_constraintTop_toBottomOf="@+id/cardescovar"
+                    app:layout_constraintVertical_bias="0.074" />
+
+                <ImageView
+                    android:id="@+id/imagevocabulario"
+                    android:layout_width="119dp"
+                    android:layout_height="92dp"
+                    android:layout_marginTop="52dp"
+                    android:src="@drawable/turmamika"
+                    app:layout_constraintEnd_toEndOf="@id/cardvocabulario"
+                    app:layout_constraintHorizontal_bias="0.586"
+                    app:layout_constraintStart_toStartOf="@id/cardvocabulario"
+                    app:layout_constraintTop_toTopOf="@id/cardvocabulario" />
+
+                <TextView
+                    android:id="@+id/textvocabulario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/adigianaui"
+                    android:text="Palavras\nMágicas"
+                    android:textAlignment="center"
+                    android:textColor="#a05831"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/cardvocabulario"
+                    app:layout_constraintEnd_toEndOf="@id/cardvocabulario"
+                    app:layout_constraintStart_toStartOf="@id/cardvocabulario"
+                    app:layout_constraintTop_toTopOf="@id/cardvocabulario"
+                    app:layout_constraintVertical_bias="0.01" />
+
+                <ImageView
+                    android:id="@+id/logofim"
+                    android:layout_width="228dp"
+                    android:layout_height="45dp"
+                    android:contentDescription="Logo BrilhaKids"
+                    android:src="@drawable/logo_brilhakids"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.569"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvOlaUsuario"
+                    app:layout_constraintVertical_bias="0.979" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        app:itemIconSize="55dp"
+        android:background="#2DA33E"
+        app:itemTextColor="@color/white"
+        app:itemTextAppearance="@style/NavDrawerText"
+        app:itemIconTint="@null"
+        android:layout_gravity="start"
+        app:menu="@menu/menu_drawer_logged"
+        app:headerLayout="@layout/nav_header" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

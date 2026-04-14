@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:background="@drawable/fundo_laranja"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="700dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="188dp"
+            android:layout_height="73dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/logo_brilhakids" />
+
+        <!-- Texto de boas-vindas -->
+        <TextView
+            android:id="@+id/tvBemVindo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adigianaui"
+            android:text="Bem-vindo ao BrilhaKids,"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#4CAF50"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/tvDescricao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adigianaui"
+            android:text="Um espaço onde você pode se divertir e\naprender ao mesmo tempo!"
+            android:textSize="14sp"
+            android:textColor="#444444"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/tvConecte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adigianaui"
+            android:text="Conecte-se"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#4CAF50"
+            android:layout_marginBottom="16dp" />
+
+        <!-- E-mail -->
+        <EditText
+            android:id="@+id/etEmailLogin"
+            android:layout_width="263dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/edittext_rounded"
+            android:fontFamily="@font/adigianaui"
+            android:hint="Nome de Usuário ou E-mail"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#FFFFFF" />
+
+        <!-- Senha -->
+        <EditText
+            android:id="@+id/etSenhaLogin"
+            android:layout_width="263dp"
+            android:layout_height="50dp"
+            android:hint="Senha"
+            android:background="@drawable/edittext_rounded"
+            android:fontFamily="@font/adigianaui"
+            android:padding="12dp"
+            android:inputType="textPassword"
+            android:textColor="#000000"
+            android:textColorHint="#FFFFFF"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Checkbox -->
+        <CheckBox
+            android:id="@+id/cbMostrarSenha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adigianaui"
+            android:text="Mostrar Senha"
+            android:textColor="#2D2D2D"
+            android:layout_marginBottom="16dp"
+            android:buttonTint="#2E7D32" />
+
+        <!-- Botão Entrar -->
+        <Button
+            android:id="@+id/btnEntrar"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="#4CAF50"
+            android:fontFamily="@font/adigianaui"
+            android:text="Entrar"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+
+        <!-- Esqueceu e Criar Conta -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvEsqueceuSenha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/adigianaui"
+                android:text="Esqueceu a senha?"
+                android:textColor="#5C4033"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvCadastrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/adigianaui"
+                android:text="Criar Conta"
+                android:textColor="#4CAF50"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

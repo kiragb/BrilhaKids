@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Pagina Inicial"/>
+        <item android:id="@+id/nav_perfil"
+            android:icon="@drawable/ic_user_user"
+            android:title="Meu perfil"/>
+        <item android:id="@+id/nav_senha"
+            android:icon="@drawable/ic_lock_colorido"
+            android:title="Mudar Senha"/>
+        <item android:id="@+id/nav_sobre"
+            android:icon="@drawable/ic_info_colorido"
+            android:title="Sobre nós"/>
+        <item android:id="@+id/nav_sair"
+            android:icon="@drawable/ic_logout_colorido"
+            android:title="Sair"/>
+    </group>
+</menu>

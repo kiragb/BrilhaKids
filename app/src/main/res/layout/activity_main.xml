@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFAE7">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"> <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:background="#FFFAE7">
+
+        <ImageView
+            android:id="@+id/menuIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/ic_menu"
+            android:contentDescription="Menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="Logo BrilhaKids"
+            android:src="@drawable/logo_brilhakids"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@id/menuIcon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fundo_laranja"
+            android:layout_width="365dp"
+            android:layout_height="834dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/fundo_laranja"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo">
+
+            <TextView
+                android:id="@+id/tvOlaUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/adigianaui"
+                android:text="Olá! tudo bem?"
+                android:textColor="#00B050"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/cardJogos"
+                android:layout_width="148dp"
+                android:layout_height="144dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/bg_azul_arredondado"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvOlaUsuario" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="94dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="60dp"
+                android:src="@drawable/jogo_peca"
+                app:layout_constraintStart_toStartOf="@id/cardJogos"
+                app:layout_constraintEnd_toEndOf="@id/cardJogos"
+                app:layout_constraintTop_toTopOf="@id/cardJogos" />
+
+            <TextView
+                android:id="@+id/textjogos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/adigianaui"
+                android:text="Jogos\nVirtuais"
+                android:textAlignment="center"
+                android:textColor="#260066"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/imageView3"
+                app:layout_constraintStart_toStartOf="@id/cardJogos"
+                app:layout_constraintEnd_toEndOf="@id/cardJogos"
+                app:layout_constraintTop_toTopOf="@id/cardJogos" />
+
+            <ImageView
+                android:id="@+id/menina"
+                android:layout_width="187dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="28dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/menina"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.937"
+                app:layout_constraintTop_toBottomOf="@id/tvOlaUsuario" />
+
+            <ImageView
+                android:id="@+id/cardLicoes"
+                android:layout_width="148dp"
+                android:layout_height="144dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_rosa_arredondado"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.078"
+                app:layout_constraintTop_toBottomOf="@id/cardJogos" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="121dp"
+                android:layout_height="82dp"
+                android:layout_marginTop="60dp"
+                android:src="@drawable/licoes"
+                app:layout_constraintStart_toStartOf="@id/cardLicoes"
+                app:layout_constraintEnd_toEndOf="@id/cardLicoes"
+                app:layout_constraintTop_toTopOf="@id/cardLicoes" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/adigianaui"
+                android:text="Lições"
+                android:textAlignment="center"
+                android:textColor="#B30000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/imageView4"
+                app:layout_constraintStart_toStartOf="@id/cardLicoes"
+                app:layout_constraintEnd_toEndOf="@id/cardLicoes"
+                app:layout_constraintTop_toTopOf="@id/cardLicoes" />
+
+            <ImageView
+                android:id="@+id/cardMusicas"
+                android:layout_width="148dp"
+                android:layout_height="144dp"
+                android:layout_marginTop="212dp"
+                android:background="@drawable/bg_amarelo_arredondado"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.925"
+                app:layout_constraintTop_toTopOf="@id/menina" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="120dp"
+                android:layout_height="89dp"
+                android:src="@drawable/musicas"
+                app:layout_constraintStart_toStartOf="@id/cardMusicas"
+                app:layout_constraintEnd_toEndOf="@id/cardMusicas"
+                app:layout_constraintTop_toTopOf="@id/cardMusicas"
+                app:layout_constraintBottom_toBottomOf="@id/cardMusicas"
+                app:layout_constraintVertical_bias="0.836" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="84dp"
+                android:layout_height="26dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/adigianaui"
+                android:text="Músicas"
+                android:textAlignment="center"
+                android:textColor="#663300"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/imageView"
+                app:layout_constraintStart_toStartOf="@id/cardMusicas"
+                app:layout_constraintEnd_toEndOf="@id/cardMusicas"
+                app:layout_constraintTop_toTopOf="@id/cardMusicas"
+                app:layout_constraintVertical_bias="0.1" />
+
+            <ImageView
+                android:id="@+id/menino"
+                android:layout_width="187dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/menino"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardLicoes" />
+
+            <ImageView
+                android:id="@+id/cardJogosManuais"
+                android:layout_width="148dp"
+                android:layout_height="144dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_verde_arredondado"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.915"
+                app:layout_constraintStart_toStartOf="@id/menino"
+                app:layout_constraintTop_toBottomOf="@id/cardMusicas" />
+
+            <ImageView
+                android:id="@+id/carddicas"
+                android:layout_width="148dp"
+                android:layout_height="144dp"
+                android:background="@drawable/bg_roxo_arredondado"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintStart_toStartOf="@id/menino"
+                app:layout_constraintTop_toBottomOf="@+id/menino"
+                app:layout_constraintVertical_bias="0.195" />
+
+            <ImageView
+                android:id="@+id/cardfale"
+                android:layout_width="148dp"
+                android:layout_height="144dp"
+                android:background="@drawable/bg_azulclaro_arredondado"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.915"
+                app:layout_constraintStart_toStartOf="@id/menino"
+                app:layout_constraintTop_toBottomOf="@+id/cardJogosManuais"
+                app:layout_constraintVertical_bias="0.195" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="100dp"
+                android:layout_height="84dp"
+                android:layout_marginTop="48dp"
+                android:src="@drawable/jogos_manuais"
+                app:layout_constraintStart_toStartOf="@id/cardJogosManuais"
+                app:layout_constraintEnd_toEndOf="@id/cardJogosManuais"
+                app:layout_constraintTop_toTopOf="@id/cardJogosManuais" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="100dp"
+                android:layout_height="84dp"
+                android:src="@drawable/mensagens"
+                app:layout_constraintBottom_toBottomOf="@+id/cardfale"
+                app:layout_constraintEnd_toEndOf="@id/cardfale"
+                app:layout_constraintStart_toStartOf="@id/cardfale"
+                app:layout_constraintTop_toTopOf="@id/cardfale"
+                app:layout_constraintVertical_bias="0.766" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="100dp"
+                android:layout_height="84dp"
+                android:src="@drawable/ideia"
+                app:layout_constraintBottom_toBottomOf="@+id/carddicas"
+                app:layout_constraintEnd_toEndOf="@id/carddicas"
+                app:layout_constraintStart_toStartOf="@id/carddicas"
+                app:layout_constraintTop_toTopOf="@id/carddicas"
+                app:layout_constraintVertical_bias="0.666" />
+
+            <TextView
+                android:id="@+id/textjogosmanuais"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/adigianaui"
+                android:text="Jogos Manuais"
+                android:textAlignment="center"
+                android:textColor="#005000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/cardJogosManuais"
+                app:layout_constraintStart_toStartOf="@id/cardJogosManuais"
+                app:layout_constraintEnd_toEndOf="@id/cardJogosManuais"
+                app:layout_constraintTop_toTopOf="@id/cardJogosManuais"
+                app:layout_constraintVertical_bias="0.111" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/adigianaui"
+                android:text="Dicas"
+                android:textAlignment="center"
+                android:textColor="#2e0084"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/carddicas"
+                app:layout_constraintEnd_toEndOf="@+id/carddicas"
+                app:layout_constraintHorizontal_bias="0.52"
+                app:layout_constraintStart_toStartOf="@+id/carddicas"
+                app:layout_constraintTop_toTopOf="@+id/carddicas"
+                app:layout_constraintVertical_bias="0.076" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/adigianaui"
+                android:text="Fale Conosco"
+                android:textAlignment="center"
+                android:textColor="#085e9d"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/cardfale"
+                app:layout_constraintEnd_toEndOf="@+id/cardfale"
+                app:layout_constraintStart_toStartOf="@+id/cardfale"
+                app:layout_constraintTop_toTopOf="@+id/cardfale"
+                app:layout_constraintVertical_bias="0.118" />
+
+            <ImageView
+                android:id="@+id/logofim"
+                android:layout_width="228dp"
+                android:layout_height="45dp"
+                android:contentDescription="Logo BrilhaKids"
+                android:src="@drawable/logo_brilhakids"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.569"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvOlaUsuario"
+                app:layout_constraintVertical_bias="0.979" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        app:itemIconSize="55dp"
+        android:background="#2DA33E"
+        app:itemTextColor="@color/white"
+        app:itemTextAppearance="@style/NavDrawerText"
+        app:itemIconTint="@null"
+        android:layout_gravity="start"
+        app:menu="@menu/drawer_menu"
+        app:headerLayout="@layout/drawer_header" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

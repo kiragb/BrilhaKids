@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:background="@drawable/fundo_laranja"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="700dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="188dp"
+            android:layout_height="73dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/logo_brilhakids" />
+
+        <!-- Texto de boas-vindas -->
+        <TextView
+            android:id="@+id/tvBemVindo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adigianaui"
+            android:text="Alteração de Senha"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#055C9C"
+            android:layout_marginBottom="4dp" />
+
+        <!-- E-mail -->
+        <TextView
+            android:id="@+id/tvDescricao"
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/adigianaui"
+            android:gravity="center"
+            android:text="Sua senha deve ter no mínimo 6 caracteres e no máxima 10 caracteres"
+            android:textColor="#444444"
+            android:textSize="19sp" />
+
+        <TextView
+            android:id="@+id/Nova"
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adigianaui"
+            android:gravity="center"
+            android:text="@string/Novasenha"
+            android:layout_marginBottom="10dp"
+            android:textColor="#37B6EB"
+            android:textSize="16sp" />
+
+        <!-- Senha -->
+        <EditText
+            android:id="@+id/etNovaSenha"
+            android:layout_width="263dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:hint="Digite a nova senha"
+            android:background="@drawable/edittext_rounded_azul"
+            android:fontFamily="@font/adigianaui"
+            android:padding="12dp"
+            android:inputType="textPassword"
+            android:textColor="#000000"
+            android:textColorHint="#FFFFFF"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/Novaca"
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adigianaui"
+            android:gravity="center"
+            android:layout_marginTop="10sp"
+            android:text="@string/Confirme"
+            android:layout_marginBottom="10dp"
+            android:textColor="#37B6EB"
+            android:textSize="16sp" />
+
+        <!-- Senha -->
+        <EditText
+            android:id="@+id/etConfirmarSenha"
+            android:layout_width="263dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:hint="Repita a Senha"
+            android:background="@drawable/edittext_rounded_azul"
+            android:fontFamily="@font/adigianaui"
+            android:padding="12dp"
+            android:inputType="textPassword"
+            android:textColor="#000000"
+            android:textColorHint="#FFFFFF"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Checkbox -->
+        <CheckBox
+            android:id="@+id/cbMostrarSenha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adigianaui"
+            android:text="Mostrar Senha"
+            android:textColor="#2D2D2D"
+            android:buttonTint="#055B9B" />
+
+        <Button
+            android:id="@+id/btnAlterarSenha"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#055B9B"
+            android:fontFamily="@font/adigianaui"
+            android:text="Alterar Senha"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+    </LinearLayout>
+</ScrollView>
