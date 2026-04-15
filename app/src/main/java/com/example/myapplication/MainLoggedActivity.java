@@ -18,8 +18,8 @@ public class MainLoggedActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private ImageView menuIcon, cardLicoes, imagelicoes, cardMusicas,
     imagemusic, cardJogosManuais, imagejogosmanuais, imagedica, carddicas,
-    cardfale, imagefale, cardJogos;
-    private TextView textlicoes, TextMusic, textjogosmanuais, textdica, textfale;
+    cardfale, imagefale, cardJogos, imagejogosvirtuais;
+    private TextView textlicoes, TextMusic, textjogosmanuais, textdica, textfale, textjogosvirtuais;
     private NavigationView navigationView;
 
     @Override
@@ -107,13 +107,21 @@ public class MainLoggedActivity extends AppCompatActivity {
             return true;
         });
 
+        // jogos virtuais
         cardJogos = findViewById(R.id.cardJogos);
+        imagejogosvirtuais = findViewById(R.id.imagejogosvirtuais);
+        textjogosvirtuais = findViewById(R.id.textjogosvirtuais);
 
-        // Configurar o clique para o card de Jogos Virtuais
-        cardJogos.setOnClickListener(v -> {
-            // Exibir a mensagem de "Em Manutenção"
-            Toast.makeText(MainLoggedActivity.this, "Jogos Virtuais em manutenção. Volte em breve!", Toast.LENGTH_SHORT).show();
-        });
+        View.OnClickListener abrirJogos = v -> {
+            Intent intent = new Intent(MainLoggedActivity.this, JogosVirtuais.class);
+            intent.putExtra("nome", nome);
+            intent.putExtra("sexo", sexo);
+            startActivity(intent);
+        };
+
+        cardJogos.setOnClickListener(abrirJogos);
+        imagejogosvirtuais.setOnClickListener(abrirJogos);
+        textjogosvirtuais.setOnClickListener(abrirJogos);
 
         // Lições
         cardLicoes = findViewById(R.id.cardLicoes);
