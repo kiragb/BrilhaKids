@@ -47,7 +47,6 @@
                 android:layout_marginTop="12dp"
                 android:background="@drawable/fundo_laranja"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.652"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/logo">
 
@@ -124,7 +123,7 @@
                     android:layout_marginTop="-40dp"
                     android:background="@drawable/bg_rosaclaro"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.055"
+                    app:layout_constraintHorizontal_bias="0.073"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tartaruga" />
 
@@ -155,53 +154,53 @@
                     app:layout_constraintTop_toTopOf="@id/cardmatematica" />
 
                 <ImageView
-                    android:id="@+id/cardpreservar"
+                    android:id="@+id/cardjogodavelha"
                     android:layout_width="148dp"
                     android:layout_height="144dp"
                     android:layout_marginTop="32dp"
-                    android:background="@drawable/bg_verdeescuro_arredondado"
+                    android:background="@drawable/bg_branco"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.842"
                     app:layout_constraintStart_toEndOf="@+id/cardpuzzle"
                     app:layout_constraintTop_toBottomOf="@+id/tvOlaUsuario" />
 
                 <ImageView
-                    android:id="@+id/imagepreservar"
-                    android:layout_width="95dp"
-                    android:layout_height="63dp"
-                    android:src="@drawable/lixeira"
-                    app:layout_constraintBottom_toBottomOf="@id/cardpreservar"
-                    app:layout_constraintEnd_toEndOf="@id/cardpreservar"
-                    app:layout_constraintStart_toStartOf="@id/cardpreservar"
-                    app:layout_constraintTop_toTopOf="@id/cardpreservar"
-                    app:layout_constraintVertical_bias="0.836" />
+                    android:id="@+id/imagejogodavelha"
+                    android:layout_width="120dp"
+                    android:layout_height="77dp"
+                    android:src="@drawable/velha"
+                    app:layout_constraintBottom_toBottomOf="@+id/logofim"
+                    app:layout_constraintEnd_toEndOf="@id/cardjogodavelha"
+                    app:layout_constraintStart_toStartOf="@id/cardjogodavelha"
+                    app:layout_constraintTop_toTopOf="@id/cardjogodavelha"
+                    app:layout_constraintVertical_bias="0.114" />
 
                 <TextView
-                    android:id="@+id/textpreservar"
+                    android:id="@+id/textjogodavelha"
                     android:layout_width="136dp"
                     android:layout_height="48dp"
                     android:fontFamily="@font/adigianaui"
-                    android:text="Preservando a\nNatureza"
+                    android:text="Jogo da\nVelha"
                     android:textAlignment="center"
-                    android:textColor="#45a102"
-                    android:textSize="20sp"
+                    android:textColor="#4F4F4F"
+                    android:textSize="18sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/cardpreservar"
-                    app:layout_constraintEnd_toEndOf="@id/cardpreservar"
+                    app:layout_constraintBottom_toBottomOf="@+id/cardjogodavelha"
+                    app:layout_constraintEnd_toEndOf="@id/cardjogodavelha"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@id/cardpreservar"
-                    app:layout_constraintTop_toTopOf="@id/cardpreservar"
+                    app:layout_constraintStart_toStartOf="@id/cardjogodavelha"
+                    app:layout_constraintTop_toTopOf="@id/cardjogodavelha"
                     app:layout_constraintVertical_bias="0.083" />
 
                 <ImageView
                     android:id="@+id/planeta"
                     android:layout_width="196dp"
                     android:layout_height="389dp"
-                    android:layout_marginTop="268dp"
+                    android:layout_marginTop="248dp"
                     android:scaleType="fitCenter"
                     android:src="@drawable/videogame"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.97"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvOlaUsuario" />
 
@@ -215,7 +214,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.827"
                     app:layout_constraintStart_toEndOf="@+id/tartaruga"
-                    app:layout_constraintTop_toBottomOf="@id/cardpreservar" />
+                    app:layout_constraintTop_toBottomOf="@id/cardjogodavelha" />
 
                 <ImageView
                     android:id="@+id/imagevocabulario"

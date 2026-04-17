@@ -18,8 +18,9 @@ public class JogosVirtuais extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private ImageView menuIcon, cardLicoes, imagelicoes, cardMusicas,
             imagemusic, cardpuzzleManuais, imagejogosmanuais, imagedica, carddicas,
-            cardfale, imagefale, cardpuzzle, imagpuzzle;
-    private TextView textlicoes, TextMusic, textjogosmanuais, textdica, textfale, textpuzzle;
+            cardfale, imagefale, cardpuzzle, imagpuzzle, imagejogodavelha, cardjogodavelha;
+    private TextView textlicoes, TextMusic, textjogosmanuais, textdica, textfale, textpuzzle,
+            textjogodavelha;
     private NavigationView navigationView;
 
     @Override
@@ -101,16 +102,33 @@ public class JogosVirtuais extends AppCompatActivity {
         imagpuzzle = findViewById(R.id.imagpuzzle);
         textpuzzle = findViewById(R.id.textpuzzle);
 
-        View.OnClickListener abrirJogos = v -> {
+        View.OnClickListener abrirpuzzle = v -> {
             Intent intent = new Intent(JogosVirtuais.this, Activity_puzzle.class);
             intent.putExtra("nome", nome);
             intent.putExtra("sexo", sexo);
             startActivity(intent);
         };
 
-        cardpuzzle.setOnClickListener(abrirJogos);
-        imagpuzzle.setOnClickListener(abrirJogos);
-        textpuzzle.setOnClickListener(abrirJogos);
+        cardpuzzle.setOnClickListener(abrirpuzzle);
+        imagpuzzle.setOnClickListener(abrirpuzzle);
+        textpuzzle.setOnClickListener(abrirpuzzle);
+
+
+        // jogo da velha
+        cardjogodavelha = findViewById(R.id.cardjogodavelha);
+        imagejogodavelha = findViewById(R.id.imagejogodavelha);
+        textjogodavelha = findViewById(R.id.textjogodavelha);
+
+        View.OnClickListener abrirjogodavelha = v -> {
+            Intent intent = new Intent(JogosVirtuais.this, Activity_jogodavelha.class);
+            intent.putExtra("nome", nome);
+            intent.putExtra("sexo", sexo);
+            startActivity(intent);
+        };
+
+        cardjogodavelha.setOnClickListener(abrirjogodavelha);
+        imagejogodavelha.setOnClickListener(abrirjogodavelha);
+        textjogodavelha.setOnClickListener(abrirjogodavelha);
 
 
     }

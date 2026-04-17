@@ -58,6 +58,15 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="10dp"/>
 
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MODO IMAGEM "
+                    android:checked="true"
+                    android:layout_marginBottom="10dp"
+                    android:textStyle="bold"/>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -76,6 +85,7 @@
                         android:textSize="16sp"
                         android:textStyle="bold"/>
                 </LinearLayout>
+
 
                 <FrameLayout
                     android:layout_width="280dp"

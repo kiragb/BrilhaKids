@@ -30,6 +30,7 @@ public class Activity_puzzle extends AppCompatActivity {
     private Bitmap[] imagePieces;
     private int moves = 0;
     private TextView tvMoves;
+    private boolean isImageMode = true;
 
     // Componentes do Menu Lateral (Padrão BrilhaKids)
     private DrawerLayout drawerLayout;
@@ -92,6 +93,12 @@ public class Activity_puzzle extends AppCompatActivity {
 
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
+        });
+
+        com.google.android.material.switchmaterial.SwitchMaterial switchMode = findViewById(R.id.switchMode);
+        switchMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            isImageMode = isChecked;
+            renderBoard(); // Redesenha o tabuleiro com o novo modo
         });
 
         // --- 2. CONFIGURAÇÃO DO JOGO (QUEBRA-CABEÇA) ---
@@ -178,29 +185,76 @@ public class Activity_puzzle extends AppCompatActivity {
     private void renderBoard() {
         puzzleGrid.removeAllViews();
         for (int i = 0; i < 9; i++) {
-            ImageView img = new ImageView(this);
+            // Criamos um FrameLayout para conter o número centralizado sobre o fundo
+            android.widget.FrameLayout container = new android.widget.FrameLayout(this);
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
             params.width = 0;
             params.height = 0;
             params.columnSpec = GridLayout.spec(i % 3, 1f);
             params.rowSpec = GridLayout.spec(i / 3, 1f);
-            params.setMargins(4, 4, 4, 4);
-            img.setLayoutParams(params);
-            img.setScaleType(ImageView.ScaleType.FIT_XY);
+            params.setMargins(8, 8, 8, 8);
+            container.setLayoutParams(params);
 
-            int pieceIndex = board[i];
-            if (pieceIndex == 0) {
-                img.setVisibility(View.INVISIBLE);
+            int pieceValue = board[i];
+
+            if (pieceValue == 0) {
+                container.setVisibility(View.INVISIBLE);
             } else {
-                if (imagePieces != null) {
-                    img.setImageBitmap(imagePieces[pieceIndex - 1]);
+                ImageView img = new ImageView(this);
+                img.setLayoutParams(new android.widget.FrameLayout.LayoutParams(-1, -1));
+                img.setScaleType(ImageView.ScaleType.FIT_XY);
+
+                if (isImageMode && imagePieces != null) {
+                    // Modo Imagem
+                    img.setImageBitmap(imagePieces[pieceValue - 1]);
+                    img.setBackground(null);
+                } else {
+                    // Modo Número
+                    // ... dentro do loop for no renderBoard ...
+                    if (isImageMode && imagePieces != null) {
+                        // Modo Imagem (Mantém como estava)
+                        img.setImageBitmap(imagePieces[pieceValue - 1]);
+                    } else {
+                        // --- MODO NÚMERO ESTILIZADO ---
+                        img.setImageBitmap(null);
+
+                        // Aplicamos o fundo arredondado que criamos
+                        container.setBackgroundResource(R.drawable.card_numero);
+
+                        TextView tv = new TextView(this);
+                        tv.setText(String.valueOf(pieceValue));
+                        tv.setTextSize(32); // Aumentamos o tamanho
+                        tv.setTextColor(Color.parseColor("#2DA33E")); // Cor combinando com a borda
+                        tv.setTypeface(null, android.graphics.Typeface.BOLD); // Negrito
+
+                        // Centralização absoluta do número
+                        android.widget.FrameLayout.LayoutParams textParams = new android.widget.FrameLayout.LayoutParams(
+                                android.widget.FrameLayout.LayoutParams.WRAP_CONTENT,
+                                android.widget.FrameLayout.LayoutParams.WRAP_CONTENT,
+                                android.view.Gravity.CENTER
+                        );
+                        tv.setLayoutParams(textParams);
+
+                        container.addView(tv);
+                    }
+// ...
+
+                    // Adiciona um TextView para o número
+                    TextView tv = new TextView(this);
+                    tv.setText(String.valueOf(pieceValue));
+                    tv.setTextSize(24);
+                    tv.setTextColor(Color.BLACK);
+                    tv.setGravity(android.view.Gravity.CENTER);
+                    container.addView(tv);
                 }
-                img.setBackgroundColor(Color.LTGRAY);
+
+                container.addView(img, 0); // Adiciona a imagem no fundo
+                container.setBackgroundColor(Color.LTGRAY);
             }
 
             final int currentIndex = i;
-            img.setOnClickListener(v -> movePiece(currentIndex));
-            puzzleGrid.addView(img);
+            container.setOnClickListener(v -> movePiece(currentIndex));
+            puzzleGrid.addView(container);
         }
     }
 
