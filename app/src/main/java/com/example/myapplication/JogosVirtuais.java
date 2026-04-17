@@ -18,9 +18,10 @@ public class JogosVirtuais extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private ImageView menuIcon, cardLicoes, imagelicoes, cardMusicas,
             imagemusic, cardpuzzleManuais, imagejogosmanuais, imagedica, carddicas,
-            cardfale, imagefale, cardpuzzle, imagpuzzle, imagejogodavelha, cardjogodavelha;
+            cardfale, imagefale, cardpuzzle, imagpuzzle, imagejogodavelha, cardjogodavelha,
+            cardantecessor, imageantecessor;
     private TextView textlicoes, TextMusic, textjogosmanuais, textdica, textfale, textpuzzle,
-            textjogodavelha;
+            textjogodavelha, textantecessor;
     private NavigationView navigationView;
 
     @Override
@@ -129,6 +130,23 @@ public class JogosVirtuais extends AppCompatActivity {
         cardjogodavelha.setOnClickListener(abrirjogodavelha);
         imagejogodavelha.setOnClickListener(abrirjogodavelha);
         textjogodavelha.setOnClickListener(abrirjogodavelha);
+
+
+        // Antecessores
+        cardantecessor = findViewById(R.id.cardantecessor);
+        imageantecessor = findViewById(R.id.imageantecessor);
+        textantecessor = findViewById(R.id.textantecessor);
+
+        View.OnClickListener abrirAntecessor = v -> {
+            Intent intent = new Intent(JogosVirtuais.this, activity_numeros.class);
+            intent.putExtra("nome", nome);
+            intent.putExtra("sexo", sexo);
+            startActivity(intent);
+        };
+
+        cardantecessor.setOnClickListener(abrirAntecessor);
+        imageantecessor.setOnClickListener(abrirAntecessor);
+        textantecessor.setOnClickListener(abrirAntecessor);
 
 
     }

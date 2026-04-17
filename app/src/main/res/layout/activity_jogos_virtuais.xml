@@ -193,6 +193,18 @@
                     app:layout_constraintVertical_bias="0.083" />
 
                 <ImageView
+                    android:id="@+id/cardantecessor"
+                    android:layout_width="148dp"
+                    android:layout_height="144dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@drawable/bg_amareloescuro"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.827"
+                    app:layout_constraintStart_toEndOf="@+id/tartaruga"
+                    app:layout_constraintTop_toBottomOf="@id/cardjogodavelha" />
+
+                <ImageView
                     android:id="@+id/planeta"
                     android:layout_width="196dp"
                     android:layout_height="389dp"
@@ -205,42 +217,31 @@
                     app:layout_constraintTop_toBottomOf="@+id/tvOlaUsuario" />
 
                 <ImageView
-                    android:id="@+id/cardvocabulario"
-                    android:layout_width="148dp"
-                    android:layout_height="144dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="24dp"
-                    android:background="@drawable/bg_amareloescuro"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.827"
-                    app:layout_constraintStart_toEndOf="@+id/tartaruga"
-                    app:layout_constraintTop_toBottomOf="@id/cardjogodavelha" />
-
-                <ImageView
-                    android:id="@+id/imagevocabulario"
-                    android:layout_width="100dp"
-                    android:layout_height="84dp"
+                    android:id="@+id/imageantecessor"
+                    android:layout_width="107dp"
+                    android:layout_height="100dp"
                     android:layout_marginTop="48dp"
-                    android:src="@drawable/animais"
-                    app:layout_constraintEnd_toEndOf="@id/cardvocabulario"
-                    app:layout_constraintStart_toStartOf="@id/cardvocabulario"
-                    app:layout_constraintTop_toTopOf="@id/cardvocabulario" />
+                    android:src="@drawable/antecessor"
+                    app:layout_constraintEnd_toEndOf="@id/cardantecessor"
+                    app:layout_constraintStart_toStartOf="@id/cardantecessor"
+                    app:layout_constraintTop_toTopOf="@id/cardantecessor" />
 
                 <TextView
-                    android:id="@+id/textvocabulario"
+                    android:id="@+id/textantecessor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/adigianaui"
-                    android:text="Vocabulário"
+                    android:text="Antecessores e \n Sucessores"
                     android:textAlignment="center"
                     android:textColor="#f78012"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/cardvocabulario"
-                    app:layout_constraintEnd_toEndOf="@id/cardvocabulario"
-                    app:layout_constraintStart_toStartOf="@id/cardvocabulario"
-                    app:layout_constraintTop_toTopOf="@id/cardvocabulario"
-                    app:layout_constraintVertical_bias="0.111" />
+                    app:layout_constraintBottom_toBottomOf="@id/cardantecessor"
+                    app:layout_constraintEnd_toEndOf="@id/cardantecessor"
+                    app:layout_constraintHorizontal_bias="0.437"
+                    app:layout_constraintStart_toStartOf="@id/cardantecessor"
+                    app:layout_constraintTop_toTopOf="@id/cardantecessor"
+                    app:layout_constraintVertical_bias="0.102" />
 
                 <ImageView
                     android:id="@+id/logofim"
