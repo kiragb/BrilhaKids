@@ -1,18 +1,345 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MeuPerfil">
-    <TextView
+    android:background="#F8F9FA">
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="nada ainda"
-        android:textAlignment="center"
-        android:textSize="40dp">
+        android:fillViewport="true">
 
-    </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:background="@drawable/header_gradient_rounded"
+                android:elevation="4dp">
+
+                <ImageView
+                    android:id="@+id/menuIcon"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="45dp"
+                    android:src="@drawable/ic_menu"
+                    app:tint="#FFFFFF"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/btnSairTopo"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_logout_colorido"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivAvatarPerfil"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:padding="5dp"
+                    android:src="@drawable/meny"
+                    app:shapeAppearanceOverlay="@style/CircleImage"
+                    android:background="#FFFFFF"
+                    android:elevation="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.4" />
+
+                <TextView
+                    android:id="@+id/tvNomePerfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/adigianaui"
+                    android:text="Pequeno Explorador"
+                    android:textColor="#FFFFFF"
+                    android:textSize="28sp"
+                    android:shadowColor="#40000000"
+                    android:shadowDx="2"
+                    android:shadowDy="2"
+                    android:shadowRadius="2"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivAvatarPerfil" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="-30dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="15dp"
+                    android:paddingHorizontal="5dp">
+
+                    <LinearLayout
+                        android:id="@+id/btnTemaVirtuais"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:background="@drawable/bg_circle_green"
+                            android:padding="12dp"
+                            android:src="@drawable/jogo_peca" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:text="Jogos\nVirtuais"
+                            android:textSize="11sp"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/adigianaui"
+                            android:textStyle="bold"
+                            android:textColor="#333333"
+                            android:gravity="center"
+                            android:lineSpacingExtra="-2dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnTemaLicoes"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:background="@drawable/bg_circle_red"
+                            android:padding="12dp"
+                            android:src="@drawable/licoes" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:text="Lições"
+                            android:textSize="11sp"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/adigianaui"
+                            android:textStyle="bold"
+                            android:textColor="#333333"
+                            android:gravity="center"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnTemaMusicas"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:background="@drawable/bg_circle_yellow"
+                            android:padding="12dp"
+                            android:src="@drawable/musicas" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:text="Músicas"
+                            android:textSize="11sp"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/adigianaui"
+                            android:textStyle="bold"
+                            android:textColor="#333333"
+                            android:gravity="center"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnTemaManuais"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:background="@drawable/bg_circle_blue"
+                            android:padding="12dp"
+                            android:src="@drawable/jogos_manuais" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:text="Jogos\nManuais"
+                            android:textSize="11sp"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/adigianaui"
+                            android:textStyle="bold"
+                            android:textColor="#333333"
+                            android:gravity="center"
+                            android:lineSpacingExtra="-2dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/containerProgresso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_margin="20dp"
+                android:padding="20dp"
+                android:background="@drawable/bg_white_rounded_bordered"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvTemaNome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/adigianaui"
+                    android:layout_marginBottom="15dp"/>
+
+                <FrameLayout
+                    android:layout_width="160dp"
+                    android:layout_height="160dp">
+                    <ProgressBar
+                        android:id="@+id/progressBrilhante"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:indeterminate="false"
+                        android:background="@drawable/circular_progress_background"
+                        android:progressDrawable="@drawable/circular_progress_bar" />
+                    <TextView
+                        android:id="@+id/tvPorcentagemCentro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="32sp"
+                        android:textStyle="bold"
+                        android:textColor="#333333"
+                        android:text="0%"/>
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tvStatusTexto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="0 de 0 feitos"
+                    android:fontFamily="@font/adigianaui"
+                    android:textColor="#555555"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvMensagemIncentivo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Vamos lá!"
+                    android:fontFamily="@font/adigianaui"
+                    android:textColor="#FF5722"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_white_rounded_bordered"
+                    android:padding="15dp"
+                    android:elevation="2dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center_vertical">
+                    <ImageView android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_email" />
+                    <TextView
+                        android:id="@+id/tvEmailInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="usuario@email.com"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/adigianaui"
+                        android:textColor="#333333"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_white_rounded_bordered"
+                    android:padding="15dp"
+                    android:elevation="2dp"
+                    android:gravity="center_vertical">
+                    <ImageView android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_gender" />
+                    <TextView
+                        android:id="@+id/tvSexoInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="Gênero: Masculino"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/adigianaui"
+                        android:textColor="#333333"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="290dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#EBF0EB"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/menu_drawer_logged"
+        app:itemBackground="@drawable/menu_item_gradient"
+        app:itemIconTint="#FFFFFF"
+        app:itemTextColor="#01420a"
+        app:itemShapeFillColor="@null"
+        app:itemHorizontalPadding="26dp"
+        app:itemIconPadding="22dp"
+        app:itemVerticalPadding="14dp"
+        app:itemTextAppearance="@style/NavDrawerText_Kids" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

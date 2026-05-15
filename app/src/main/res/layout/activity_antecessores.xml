@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Antecessores">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFAE7">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Ícone do Menu -->
+            <ImageView
+                android:id="@+id/menuIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:contentDescription="Menu"
+                android:src="@drawable/ic_menu"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Logo Superior -->
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:contentDescription="Logo BrilhaKids"
+                android:src="@drawable/logo_brilhakids"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:fillViewport="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/logo">
+
+                <LinearLayout
+                    android:id="@+id/container_tutorial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/fundo_laranja"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Título da Página -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/adigianaui"
+                        android:text="Antecessores e Sucessores"
+                        android:textColor="#098f0d"
+                        android:gravity="center"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="24dp"
+                        android:fontFamily="@font/adigianaui"
+                        android:gravity="center"
+                        android:text="Este brinquedo auxiliará no aprendizado da criança ao praticar quais os números que vêm antes e depois de alguns já determinados."
+                        android:textColor="#09ad35"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <!-- SEÇÃO: MATERIAIS (Card Azul) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/bg_roxoclaro"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <!-- Ajustado para fitCenter e com fundo branco para destaque -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:background="#FFFFFF"
+                            android:padding="4dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/antecessor_sucessor1" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/adigianaui"
+                            android:gravity="center"
+                            android:text="MATERIAIS: Papelão, uma régua, lápis/caneta, tesoura, tampinhas de garrafas e caneta para cd.."
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- SEÇÃO: PASSO 1 (Card Rosa) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/bg_fundo_cinza"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:background="#FFFFFF"
+                            android:padding="4dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/antecessor_sucessor2" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/adigianaui"
+                            android:gravity="center"
+                            android:text="PASSO 1: Comece a desmontar a caixa de papelão, não usaremos montada. Depois meça um retângulo de 15x6. Trace as linhas do retângulo em seguida corte-o com a tesoura."
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- SEÇÃO: PASSO 2 (Card Amarelo) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/bg_amarelo_arredondado"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:background="#FFFFFF"
+                            android:padding="4dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/antecessor_sucessor3" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/adigianaui"
+                            android:gravity="center"
+                            android:text="PASSO 2: Agora divida o comprimento do retângulo em 3 partes iguais de 5cm em cada. No meio escreva o número determinado"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- SEÇÃO: PASSO 3 (Card Amarelo) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/bg_marrommaisclaro"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:background="#FFFFFF"
+                            android:padding="4dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/antecessor_sucessor4" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/adigianaui"
+                            android:gravity="center"
+                            android:text="PASSO 3: Com duas tapinhas e com a caneta para cd, escreva em cada uma o número antecessor e sucessor ao que foi escrito no papelão"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- SEÇÃO: RESULTADO (Card Verde) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/bg_vermelho"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:background="#FFFFFF"
+                            android:padding="4dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/antecessor_sucessor7" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="@font/adigianaui"
+                            android:gravity="center"
+                            android:text="RESULTADO"
+                            android:textColor="#260066"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/adigianaui"
+                            android:gravity="center"
+                            android:text="Voce pode optar por deixar o brinquedo decorado do seu jeito, já que esse é um ponto positivo para quando se quer atrair a atenção de uma criança!"
+                            android:textColor="#000000"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <CheckBox
+                            android:id="@+id/checkboxConcluidoAntecessores"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_gravity="center"
+                            android:buttonTint="#260066"
+                            android:fontFamily="@font/adigianaui"
+                            android:text="Marcar como concluído"
+                            android:textColor="#260066"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Logo de Rodapé -->
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/logo_brilhakids" />
+
+                </LinearLayout>
+            </ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigation_view"
+            android:layout_width="290dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="#EBF0EB"
+            app:headerLayout="@layout/nav_header"
+            app:menu="@menu/menu_drawer_logged"
+
+            app:itemBackground="@drawable/menu_item_gradient"
+            app:itemIconTint="#FFFFFF"
+            app:itemTextColor="#01420a"
+            app:itemShapeFillColor="@null"
+            app:itemHorizontalPadding="26dp"
+            app:itemIconPadding="22dp"
+            app:itemVerticalPadding="14dp"
+            app:itemTextAppearance="@style/NavDrawerText_Kids">
+
+            <include
+                layout="@layout/nav_footer_bloco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="40dp"/>
+
+        </com.google.android.material.navigation.NavigationView>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

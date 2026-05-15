@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
+import android.content.Context; // Importado para SharedPreferences
 import android.content.Intent;
+import android.content.SharedPreferences; // Importado para SharedPreferences
 import android.os.Bundle;
 import android.text.InputType;
 import android.widget.*;
@@ -70,10 +72,8 @@ public class LoginActivity extends AppCompatActivity {
         mAuth.signInWithEmailAndPassword(email, senha)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
-                        // Login bem-sucedido
                         FirebaseUser user = mAuth.getCurrentUser();
                         if (user != null) {
-                            // Buscar dados extras no Realtime Database
                             mDatabase.child("usuarios").child(user.getUid())
                                     .addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override
@@ -81,6 +81,13 @@ public class LoginActivity extends AppCompatActivity {
                                             if (snapshot.exists()) {
                                                 String nome = snapshot.child("nome").getValue(String.class);
                                                 String sexo = snapshot.child("sexo").getValue(String.class);
+
+                                                // --- SALVANDO DADOS PARA MANTER LOGADO ---
+                                                SharedPreferences prefs = getSharedPreferences("BrilhaKidsPrefs", Context.MODE_PRIVATE);
+                                                SharedPreferences.Editor editor = prefs.edit();
+                                                editor.putString("nome_usuario", nome);
+                                                editor.putString("sexo_usuario", sexo);
+                                                editor.apply(); // Salva os dados no celular
 
                                                 Toast.makeText(LoginActivity.this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
 

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    android:background="#FFFAE7">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Ícone do Menu -->
+        <ImageView
+            android:id="@+id/menuIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="40dp"
+            android:contentDescription="Menu"
+            android:src="@drawable/ic_menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Logo Superior -->
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="Logo BrilhaKids"
+            android:src="@drawable/logo_brilhakids"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo">
+
+            <LinearLayout
+                android:id="@+id/container_tutorial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/fundo_laranja"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_margin="16dp">
+
+                <!-- Título da Página -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/adigianaui"
+                    android:text="Quebra-Cabeça"
+                    android:textColor="#260066"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="24dp"
+                    android:fontFamily="@font/adigianaui"
+                    android:gravity="center"
+                    android:text="Este brinquedo ajuda a desenvolver a memorização de um jeito super divertido!"
+                    android:textColor="#076785"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <!-- SEÇÃO: MATERIAIS -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_azul_arredondado"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:background="#FFFFFF"
+                        android:padding="4dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/quebra_cabeca1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/adigianaui"
+                        android:gravity="center"
+                        android:text="MATERIAIS: Palitos de sorvete, fita crepe, tinta guache e pincel."
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- SEÇÃO: PASSO 1 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_rosa_arredondado"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:background="#FFFFFF"
+                        android:padding="4dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/quebra_cabeca2" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/adigianaui"
+                        android:gravity="center"
+                        android:text="PASSO 1: Junte os palitos e use a fita crepe para fixá-los atrás, criando uma base para pintar."
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- SEÇÃO: PASSO 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_amarelo_arredondado"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:background="#FFFFFF"
+                        android:padding="4dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/quebra_cabeca3" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/adigianaui"
+                        android:gravity="center"
+                        android:text="PASSO 2: Agora é só usar a sua criatividade para fazer um desenho bem colorido nos palitos!"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- SEÇÃO: RESULTADO -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_verde_arredondado"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:background="#FFFFFF"
+                        android:padding="4dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/quebra_cabeca4" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/adigianaui"
+                        android:gravity="center"
+                        android:text="RESULTADO"
+                        android:textColor="#260066"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/adigianaui"
+                        android:gravity="center"
+                        android:text="Prontinho, viu como é fácil de se fazer? Você pode optar por deixar o brinquedo decorado. Depois disso, use sua imaginação para criar vários desafios diferentes."
+                        android:textColor="#000000"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <CheckBox
+                        android:id="@+id/checkboxConcluidoPuzzle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_gravity="center"
+                        android:buttonTint="#260066"
+                        android:fontFamily="@font/adigianaui"
+                        android:text="Marcar como concluído"
+                        android:textColor="#260066"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Logo de Rodapé -->
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/logo_brilhakids" />
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="290dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#EBF0EB"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/menu_drawer_logged"
+
+        app:itemBackground="@drawable/menu_item_gradient"
+        app:itemIconTint="#FFFFFF"
+        app:itemTextColor="#01420a"
+        app:itemShapeFillColor="@null"
+        app:itemHorizontalPadding="26dp"
+        app:itemIconPadding="22dp"
+        app:itemVerticalPadding="14dp"
+        app:itemTextAppearance="@style/NavDrawerText_Kids">
+
+        <include
+            layout="@layout/nav_footer_bloco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="40dp"/>
+
+    </com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>

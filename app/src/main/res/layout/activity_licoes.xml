@@ -237,34 +237,35 @@
                 app:layout_constraintTop_toTopOf="@id/cardvocabulario"
                 app:layout_constraintVertical_bias="0.111" />
 
-            <ImageView
-                android:id="@+id/logofim"
-                android:layout_width="228dp"
-                android:layout_height="45dp"
-                android:contentDescription="Logo BrilhaKids"
-                android:src="@drawable/logo_brilhakids"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.569"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tvOlaUsuario"
-                app:layout_constraintVertical_bias="0.979" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
-        android:layout_width="280dp"
+        android:layout_width="290dp"
         android:layout_height="match_parent"
-        app:itemIconSize="55dp"
-        android:background="#2DA33E"
-        app:itemTextColor="@color/white"
-        app:itemTextAppearance="@style/NavDrawerText"
-        app:itemIconTint="@null"
         android:layout_gravity="start"
+        android:background="#EBF0EB"
+        app:headerLayout="@layout/nav_header"
         app:menu="@menu/menu_drawer_logged"
-        app:headerLayout="@layout/nav_header" />
+
+        app:itemBackground="@drawable/menu_item_gradient"
+        app:itemIconTint="#FFFFFF"
+        app:itemTextColor="#01420a"
+        app:itemShapeFillColor="@null"
+        app:itemHorizontalPadding="26dp"
+        app:itemIconPadding="22dp"
+        app:itemVerticalPadding="14dp"
+        app:itemTextAppearance="@style/NavDrawerText_Kids">
+
+        <include
+            layout="@layout/nav_footer_bloco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="40dp"/>
+
+    </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Quando o item está selecionado ou pressionado -->
+    <item android:color="#FFFFFF" android:state_checked="true" />
+    <item android:color="#FFFFFF" android:state_pressed="true" />
+
+    <!-- Cor padrão para os outros estados -->
+    <item android:color="#4834D4" />
+</selector>

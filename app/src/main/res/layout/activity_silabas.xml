@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Antecessores">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFAE7">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Ícone do Menu -->
+            <ImageView
+                android:id="@+id/menuIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:contentDescription="Menu"
+                android:src="@drawable/ic_menu"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Logo Superior -->
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:contentDescription="Logo BrilhaKids"
+                android:src="@drawable/logo_brilhakids"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:fillViewport="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/logo">
+
+                <LinearLayout
+                    android:id="@+id/container_tutorial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/fundo_laranja"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Título da Página -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/adigianaui"
+                        android:text="Jogo das Silabas"
+                        android:textColor="#098f0d"
+                        android:gravity="center"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="24dp"
+                        android:fontFamily="@font/adigianaui"
+                        android:gravity="center"
+                        android:text="Este brinquedo auxiliará no aprendizado da criança ao formar as palavras corretamente. Os desenhos serevm para escrever o nome daquele objeto ou animal que ali esta"
+                        android:textColor="#09ad35"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <!-- SEÇÃO: MATERIAIS (Card Azul) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/bg_azulbemclaro"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <!-- Ajustado para fitCenter e com fundo branco para destaque -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:background="#FFFFFF"
+                            android:padding="4dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/jogo_das_silabas1" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/adigianaui"
+                            android:gravity="center"
+                            android:text="MATERIAIS: Folha de EVA simples ou com glitter, papelão, çpincel, tinta ou lapis-de-cor, tesoura. cola-quente. canetas, velcro e tampinhas de garrafas"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- SEÇÃO: PASSO 1 (Card Rosa) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/bg_verdeescuro_arredondado"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:background="#FFFFFF"
+                            android:padding="4dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/jogo_das_silabas2" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/adigianaui"
+                            android:gravity="center"
+                            android:text="PASSO 1: Corte um retangulo de papelão, encape a placa de papelão com o eva, usando cola quente, faça o titulo como quiser, e depois cole na placa de papelão a palavra &quot; PALAVRAS &quot;"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- SEÇÃO: PASSO 2 (Card Amarelo) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/bg_azulclaro_arredondado"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:background="#FFFFFF"
+                            android:padding="4dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/jogo_das_silabas3" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/adigianaui"
+                            android:gravity="center"
+                            android:text="PASSO 2: Com os enrosques das tapinhas cole-os com a cola quente e também pedaços de velcro em cada linha formada por esses enrosques, depois faça desenhos de sua preferência nos papelões e recorte-os"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- SEÇÃO: PASSO 3 (Card Amarelo) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/bg_rosaclaro"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:background="#FFFFFF"
+                            android:padding="4dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/jogo_das_silabas4" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/adigianaui"
+                            android:gravity="center"
+                            android:text="PASSO 3: Pegue a outra parte do velcro e cole na parte de trás do papelão que contém o desenho. Depois use as próprias tampinhas para desenhar círculos no EVA, em cada um, escreva as sílabas correspondentes da palavra que escolheu. Em seguida recorte os círculos e cole na parte superior das tampas"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- SEÇÃO: RESULTADO (Card Verde) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/bg_fundo_cinza"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:background="#FFFFFF"
+                            android:padding="4dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/jogo_das_silabas5" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="@font/adigianaui"
+                            android:gravity="center"
+                            android:text="RESULTADO"
+                            android:textColor="#260066"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/adigianaui"
+                            android:gravity="center"
+                            android:text="Finalmente o brinquedo está pronto! O legal dele também é que é possível mudar a posição dos desenhos e ir criando silabas com tampinhas para encaixar"
+                            android:textColor="#000000"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <CheckBox
+                            android:id="@+id/checkboxConcluidoSilabas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_gravity="center"
+                            android:buttonTint="#260066"
+                            android:fontFamily="@font/adigianaui"
+                            android:text="Marcar como concluído"
+                            android:textColor="#260066"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Logo de Rodapé -->
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/logo_brilhakids" />
+
+                </LinearLayout>
+            </ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Menu Lateral (NavigationView) -->
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigation_view"
+            android:layout_width="290dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="#EBF0EB"
+            app:headerLayout="@layout/nav_header"
+            app:itemIconTint="#01420a"
+            app:itemTextAppearance="@style/NavDrawerText_Kids"
+            app:itemTextColor="#01420a"
+            app:menu="@menu/menu_drawer_logged" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

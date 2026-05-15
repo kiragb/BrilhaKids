@@ -32,6 +32,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.IOException;
+import java.util.Random;
 
 public class Quarto extends AppCompatActivity {
 
@@ -64,6 +65,9 @@ public class Quarto extends AppCompatActivity {
         menuIcon = findViewById(R.id.menuIcon);
         navigationView = findViewById(R.id.navigation_view);
         navigationView.setItemIconTintList(null);
+
+        configurarFraseDinamica();
+
         menuIcon.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
 
         View headerView = navigationView.getHeaderView(0);
@@ -138,7 +142,7 @@ public class Quarto extends AppCompatActivity {
         exoPlayer = new ExoPlayer.Builder(this).build();
         playerView.setPlayer(exoPlayer);
 
-        Uri videoUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.escovarvideo);
+        Uri videoUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.kent);
         MediaItem mediaItem = MediaItem.fromUri(videoUri);
         exoPlayer.setMediaItem(mediaItem);
         exoPlayer.prepare();
@@ -262,6 +266,23 @@ public class Quarto extends AppCompatActivity {
         super.onStop();
         if (exoPlayer != null) {
             exoPlayer.release();
+        }
+    }
+
+    private void configurarFraseDinamica() {
+        TextView tvFrase = navigationView.findViewById(R.id.tvFraseMenu);
+        if (tvFrase != null) {
+            String[] frases = {
+                    "Você brilha muito! ✨",
+                    "Pronto para aprender algo novo? 🍎",
+                    "Comer bem é super divertido! 🥦",
+                    "Qual será sua descoberta de hoje? 🧐",
+                    "Você é nota dez! 🌟",
+                    "Que tal um jogo agora? 🎮"
+            };
+
+            int indice = new Random().nextInt(frases.length);
+            tvFrase.setText(frases[indice]);
         }
     }
 

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@drawable/bg_branco_arredondado">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Espaço dos Pais 👨‍👩‍👧‍👦"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#005000"
+        android:fontFamily="@font/adigianaui"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="O BrilhaKids é um ambiente seguro desenvolvido para o aprendizado lúdico."
+        android:textSize="15sp"
+        android:textColor="#45404f"
+        android:fontFamily="@font/adigianaui"
+        android:layout_marginBottom="12dp"
+        android:lineSpacingExtra="4dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="✨ Dica: Acompanhe as atividades e incentive a criança a identificar frutas reais após as lições virtuais!"
+        android:textSize="15sp"
+        android:textColor="#085e9d"
+        android:textStyle="bold"
+        android:fontFamily="@font/adigianaui"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🔒 Privacidade: Seus dados estão protegidos em nosso banco de dados."
+        android:textSize="14sp"
+        android:textColor="#B30000"
+        android:fontFamily="@font/adigianaui"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/btnFecharPais"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Entendi!"
+        android:layout_gravity="center"
+        android:backgroundTint="#005000"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/adigianaui"/>
+
+</LinearLayout>

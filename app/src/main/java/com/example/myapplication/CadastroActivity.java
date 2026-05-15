@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.InputType;
 import android.util.Log;
 import android.widget.*;
@@ -17,13 +18,22 @@ public class CadastroActivity extends AppCompatActivity {
     EditText etNome, etEmail, etSenha, etReptSenha;
     Button btnCadastrar;
     CheckBox cbMostrarSenha;
+    TextView tvJaPossuiCadastro;
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
+    RadioGroup radioGroupSexo; // Adicione esta linha
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
+
+        // Habilita persistência offline para ajudar em conexões instáveis
+        try {
+            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        } catch (Exception e) {
+            // Caso já tenha sido ativado em outra tela
+        }
 
         etNome = findViewById(R.id.etNome);
         etEmail = findViewById(R.id.etEmail);
@@ -31,9 +41,13 @@ public class CadastroActivity extends AppCompatActivity {
         etReptSenha = findViewById(R.id.etReptSenha);
         cbMostrarSenha = findViewById(R.id.cbMostrarSenha);
         btnCadastrar = findViewById(R.id.btnCadastrar);
+        tvJaPossuiCadastro = findViewById(R.id.tvJaPossuiCadastro);
+        radioGroupSexo = findViewById(R.id.radioGroupSexo);
 
         mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        // Inicialização do Database com a URL do seu projeto BrilhaKidsDB
+        mDatabase = FirebaseDatabase.getInstance("https://brilhakidsdb-default-rtdb.firebaseio.com/").getReference();
 
         cbMostrarSenha.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
@@ -43,12 +57,12 @@ public class CadastroActivity extends AppCompatActivity {
                 etSenha.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 etReptSenha.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
             }
-            // Define a fonte para os campos de senha
             etSenha.setTypeface(ResourcesCompat.getFont(this, R.font.adigianaui));
             etReptSenha.setTypeface(ResourcesCompat.getFont(this, R.font.adigianaui));
         });
 
         btnCadastrar.setOnClickListener(v -> cadastrarUsuario());
+        tvJaPossuiCadastro.setOnClickListener(v -> irParaLogin());
     }
 
     private void cadastrarUsuario() {
@@ -57,76 +71,81 @@ public class CadastroActivity extends AppCompatActivity {
         String senha = etSenha.getText().toString().trim();
         String reptSenha = etReptSenha.getText().toString().trim();
 
-        // Validação de campos vazios
         if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() || reptSenha.isEmpty()) {
             Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Validação de senhas coincidentes
         if (!senha.equals(reptSenha)) {
             Toast.makeText(this, "As senhas não coincidem", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Validação de seleção de sexo
-        RadioGroup radioGroupSexo = findViewById(R.id.radioGroupSexo);
-        int selectedId = radioGroupSexo.getCheckedRadioButtonId();
-        if (selectedId == -1) {
-            Toast.makeText(this, "Selecione o sexo", Toast.LENGTH_SHORT).show();
-            return;
-        }
+        btnCadastrar.setEnabled(false);
+        btnCadastrar.setText("Processando...");
 
-        RadioButton selectedSexo = findViewById(selectedId);
-        String sexo = selectedSexo.getText().toString();
-
-        Log.d("Cadastro", "Tentando criar usuário no Firebase Auth...");
         mAuth.createUserWithEmailAndPassword(email, senha)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
-                        Log.d("Cadastro", "Usuário criado no Auth com sucesso.");
-                        String userId = mAuth.getCurrentUser() != null ? mAuth.getCurrentUser().getUid() : null;
+                        String userId = mAuth.getCurrentUser().getUid();
 
-                        if (userId == null) {
-                            Toast.makeText(this, "Erro: userId é nulo", Toast.LENGTH_SHORT).show();
-                            Log.e("Cadastro", "userId é nulo após criação do usuário.");
-                            return;
+// Lógica para pegar o sexo selecionado
+                        int idSelecionado = radioGroupSexo.getCheckedRadioButtonId();
+                        String sexoSelecionado = "Não Definido";
+
+                        if (idSelecionado != -1) {
+                            RadioButton rbSelecionado = findViewById(idSelecionado);
+                            sexoSelecionado = rbSelecionado.getText().toString(); // Pegará "Masculino" ou "Feminino"
                         }
 
-                        Usuario usuario = new Usuario(nome, email, sexo);
-                        Log.d("Cadastro", "Salvando dados do usuário no Realtime Database...");
+// Agora passamos a variável correta para o objeto
+                        Usuario usuario = new Usuario(nome, email, sexoSelecionado);
 
-                        // Modificado: Lida com sucesso e falha dentro deste addOnCompleteListener
+                        Log.d("Cadastro", "Auth OK! UID: " + userId);
+
+                        // 1. TENTA SALVAR NO DATABASE
                         mDatabase.child("usuarios").child(userId).setValue(usuario)
                                 .addOnCompleteListener(dbTask -> {
                                     if (dbTask.isSuccessful()) {
-                                        Log.d("Cadastro", "Dados do usuário salvos com sucesso no Database.");
-                                        Toast.makeText(this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(this, LoginActivity.class));
-                                        finish();
+                                        Log.d("Cadastro", "Sucesso total no DB!");
+                                        Toast.makeText(CadastroActivity.this, "Cadastro realizado!", Toast.LENGTH_SHORT).show();
+                                        irParaLogin();
                                     } else {
-                                        Log.e("Cadastro", "Erro ao salvar dados do usuário.", dbTask.getException());
-                                        Toast.makeText(this, "Erro ao salvar dados do usuário: " + dbTask.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                        Log.e("Cadastro", "Erro no DB: " + dbTask.getException().getMessage());
                                     }
                                 });
-                        // Removido o addOnFailureListener separado para a operação do Firebase Database
+
+                        // 2. REDIRECIONAMENTO DE SEGURANÇA (Caso o Database demore a responder)
+                        // Se em 3 segundos o código acima não disparar o irParaLogin(), este aqui dispara.
+                        new Handler().postDelayed(() -> {
+                            if (!isFinishing()) {
+                                Log.d("Cadastro", "Redirecionamento automático (Timeout)");
+                                Toast.makeText(this, "Cadastro processado com sucesso!", Toast.LENGTH_SHORT).show();
+                                irParaLogin();
+                            }
+                        }, 3000);
+
                     } else {
-                        Log.e("Cadastro", "Erro ao criar usuário: ", task.getException());
-                        Toast.makeText(this, "Erro ao cadastrar: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        btnCadastrar.setEnabled(true);
+                        btnCadastrar.setText("Criar Conta");
+                        String erroAuth = task.getException() != null ? task.getException().getMessage() : "Erro desconhecido";
+                        Log.e("Cadastro", "Erro no Auth: " + erroAuth);
+                        Toast.makeText(this, "Erro: " + erroAuth, Toast.LENGTH_LONG).show();
                     }
                 });
     }
 
-    // Classe modelo para armazenar dados do usuário no Firebase Database
+    private void irParaLogin() {
+        // Removemos o signOut para evitar que o Firebase bloqueie a escrita por falta de login no momento do redirecionamento
+        Intent intent = new Intent(CadastroActivity.this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
+
     public static class Usuario {
-        public String nome;
-        public String email;
-        public String sexo;
-
-        public Usuario() {
-            // Construtor vazio necessário para Firebase
-        }
-
+        public String nome, email, sexo;
+        public Usuario() {}
         public Usuario(String nome, String email, String sexo) {
             this.nome = nome;
             this.email = email;

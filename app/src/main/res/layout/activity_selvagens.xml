@@ -54,7 +54,7 @@
                 <ImageView
                     android:id="@+id/cardJogos"
                     android:layout_width="303dp"
-                    android:layout_height="502dp"
+                    android:layout_height="518dp"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="28dp"
                     android:background="@drawable/bg_bordaazul"
@@ -113,21 +113,32 @@
                 <TextView
                     android:id="@+id/descr"
                     android:layout_width="233dp"
-                    android:layout_height="131dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:layout_marginBottom="32dp"
                     android:fontFamily="@font/adigianaui"
                     android:justificationMode="inter_word"
-                    android:text="Aprenda alguns animais servagens que vivem no nosso mundo! Prepare a lanterna e descubra esse animais no vídeo acima."
+                    android:text="Aprenda alguns animais selvagens que vivem no nosso mundo! Prepare a lanterna e descubra esse animais no vídeo acima."
                     android:textColor="#009688"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/cardJogos"
                     app:layout_constraintEnd_toEndOf="@+id/cardJogos"
-                    app:layout_constraintHorizontal_bias="0.514"
                     app:layout_constraintStart_toStartOf="@+id/cardJogos"
-                    app:layout_constraintVertical_bias="0.244" />
+                    app:layout_constraintTop_toBottomOf="@+id/playerView" />
 
+                <CheckBox
+                    android:id="@+id/checkboxConcluidoSelvagens"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:buttonTint="#009688"
+                    android:fontFamily="@font/adigianaui"
+                    android:text="Marcar como concluída"
+                    android:textColor="#009688"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/cardJogos"
+                    app:layout_constraintStart_toStartOf="@id/cardJogos"
+                    app:layout_constraintTop_toBottomOf="@id/descr" />
                 <ImageView
                     android:id="@+id/pasta"
                     android:layout_width="130dp"
@@ -168,7 +179,7 @@
                 <TextView
                     android:id="@+id/textpdf"
                     android:layout_width="241dp"
-                    android:layout_height="28dp"
+                    android:layout_height="37dp"
                     android:fontFamily="@font/adigianaui"
                     android:text="Atividade-servagens.pdf"
                     android:textAlignment="center"
@@ -188,15 +199,28 @@
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
-        android:layout_width="280dp"
+        android:layout_width="290dp"
         android:layout_height="match_parent"
-        app:itemIconSize="55dp"
-        android:background="#2DA33E"
-        app:itemTextColor="@color/white"
-        app:itemTextAppearance="@style/NavDrawerText"
-        app:itemIconTint="@null"
         android:layout_gravity="start"
+        android:background="#EBF0EB"
+        app:headerLayout="@layout/nav_header"
         app:menu="@menu/menu_drawer_logged"
-        app:headerLayout="@layout/nav_header" />
 
+        app:itemBackground="@drawable/menu_item_gradient"
+        app:itemIconTint="#FFFFFF"
+        app:itemTextColor="#01420a"
+        app:itemShapeFillColor="@null"
+        app:itemHorizontalPadding="26dp"
+        app:itemIconPadding="22dp"
+        app:itemVerticalPadding="14dp"
+        app:itemTextAppearance="@style/NavDrawerText_Kids">
+
+        <include
+            layout="@layout/nav_footer_bloco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="40dp"/>
+
+    </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

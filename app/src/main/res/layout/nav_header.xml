@@ -1,28 +1,44 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="160dp"
-    android:background="#2da43e"
-    android:padding="16dp"
-    android:gravity="center_vertical">
+    android:background="@drawable/gradient_menu_header"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="20dp">
 
-    <ImageView
-        android:id="@+id/imagePerfil"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/ic_launcher_foreground"
-        android:scaleType="centerCrop"
-        android:contentDescription="Imagem de perfil" />
+    <!-- Foto de Perfil Arredondada -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="74dp"
+        android:layout_height="74dp"
+        app:cardCornerRadius="37dp"
+        app:cardElevation="4dp">
 
-    <TextView
-        android:id="@+id/textViewNomeUsuario"
+        <ImageView
+            android:id="@+id/imagePerfil"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/meny" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Textos agrupados verticalmente ao lado da foto -->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Usuário"
-        android:layout_marginStart="12dp"
-        android:fontFamily="@font/adigianaui"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp" />
+        android:layout_marginStart="16dp"
+        android:orientation="vertical">
 
+
+        <TextView
+            android:id="@+id/textViewNomeUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adigianaui"
+            android:text="Vitaliy D."
+            android:textColor="#fffede"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 </LinearLayout>

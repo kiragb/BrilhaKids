@@ -11,10 +11,13 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"> <androidx.constraintlayout.widget.ConstraintLayout
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:background="#FFFAE7">
+        android:layout_height="wrap_content"
+        android:background="#FFFAE7">
 
         <ImageView
             android:id="@+id/menuIcon"
@@ -331,15 +334,59 @@
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
-        android:layout_width="280dp"
+        android:layout_width="290dp"
         android:layout_height="match_parent"
-        app:itemIconSize="55dp"
-        android:background="#2DA33E"
-        app:itemTextColor="@color/white"
-        app:itemTextAppearance="@style/NavDrawerText"
-        app:itemIconTint="@null"
         android:layout_gravity="start"
+        android:background="#EBF0EB"
+        app:headerLayout="@layout/drawer_header"
         app:menu="@menu/drawer_menu"
-        app:headerLayout="@layout/drawer_header" />
+        app:itemTextAppearance="@style/NavDrawerText_Kids">
+
+        <!-- Container para organizar a menina e o botão -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingBottom="50dp"> <!-- Empurra um pouco para cima do footer -->
+
+            <ImageView
+                android:id="@+id/img_menina_menu"
+                android:layout_width="280dp"
+                android:layout_height="350dp"
+                android:src="@drawable/menina_entrar"
+                android:scaleType="fitCenter" />
+
+            <!-- Botão Estilo Criar Conta -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_entrar_custom"
+                android:layout_width="220dp"
+                android:layout_height="60dp"
+                android:text="Entrar no App"
+                android:textAllCaps="false"
+                android:fontFamily="@font/adigianaui"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#01420a"
+                android:background="@drawable/bg_botao_gradiente"
+                app:backgroundTint="@null"
+                app:cornerRadius="28dp"
+                app:icon="@drawable/ic_login"
+                app:iconGravity="textStart"
+                app:iconPadding="12dp"
+                app:iconSize="24dp"
+                app:iconTint="#01420a"
+                app:elevation="4dp" />
+
+        </LinearLayout>
+
+        <include
+            layout="@layout/nav_footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom" />
+
+    </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

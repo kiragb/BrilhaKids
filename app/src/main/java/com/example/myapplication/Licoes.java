@@ -16,6 +16,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Random; // Import necessário para as frases aleatórias
+
 public class Licoes extends AppCompatActivity {
 
     private NavigationView navigationView;
@@ -23,38 +25,36 @@ public class Licoes extends AppCompatActivity {
 
     private TextView textacoes, textpreservar, textvocabulario, textmatematica;
     private ImageView menuIcon, imageacoes, cardacoes, cardpreservarr, imagepreservar,
-    cardvocabulario, imagevocabulario, cardmatematica, imagematematica;
+            cardvocabulario, imagevocabulario, cardmatematica, imagematematica;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_licoes);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-
         // Referências
         drawerLayout = findViewById(R.id.drawer_layout);
         menuIcon = findViewById(R.id.menuIcon);
         navigationView = findViewById(R.id.navigation_view);
         navigationView.setItemIconTintList(null);
-        // Abre o menu ao clicar na imagem
-        menuIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
+
+        // Abre o menu ao clicar no ícone
+        menuIcon.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
+
         View headerView = navigationView.getHeaderView(0);
-
         String sexo = getIntent().getStringExtra("sexo");
+        String nome = getIntent().getStringExtra("nome");
 
+        // --- 1. CONFIGURAÇÃO DO AVATAR NO HEADER ---
         if (sexo != null) {
-            ImageView imagePerfil = headerView.findViewById(R.id.imagePerfil); // Pegue a referência do ImageView do header
+            ImageView imagePerfil = headerView.findViewById(R.id.imagePerfil);
             if (imagePerfil != null) {
                 if (sexo.equalsIgnoreCase("Masculino")) {
                     imagePerfil.setImageResource(R.drawable.meny);
@@ -64,83 +64,85 @@ public class Licoes extends AppCompatActivity {
             }
         }
 
-        // Mostrar nome do usuário no TextView do header
-        String nome = getIntent().getStringExtra("nome");
-
+        // --- 2. CONFIGURAÇÃO DO NOME NO HEADER ---
         if (nome != null) {
-            // Atualiza saudação principal no fundo laranja
-
-            // Atualiza nome no header do menu lateral
             TextView textViewNome = headerView.findViewById(R.id.textViewNomeUsuario);
             if (textViewNome != null) {
                 textViewNome.setText("Olá, " + nome + "!");
             }
         }
 
-        // Este é o único setNavigationItemSelectedListener que você precisa
+        // --- 3. CHAMADA PARA AS FRASES E IMAGEM DINÂMICA NO MENU ---
+        configurarMenuDinamico(sexo);
+
+        // Configuração dos itens de navegação
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
-
+            Intent intent = null;
 
             if (id == R.id.nav_home) {
-                Intent intent = new Intent(this, MainLoggedActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                intent.putExtra("nome", nome);
-                intent.putExtra("sexo", sexo);
-                startActivity(intent);
-            }
-            else if (id == R.id.nav_senha) {
-                Intent intent = new Intent(this, AlterarSenhaActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                intent.putExtra("nome", nome);
-                intent.putExtra("sexo", sexo);
-                startActivity(intent);
+                intent = new Intent(this, MainLoggedActivity.class);
+            } else if (id == R.id.nav_senha) {
+                intent = new Intent(this, AlterarSenhaActivity.class);
+            } else if (id == R.id.nav_sobre) {
+                intent = new Intent(this, SobreNos.class);
+            } else if (id == R.id.nav_sair) {
+                intent = new Intent(this, MainActivity.class);
+            } else if (id == R.id.nav_perfil) {
+                intent = new Intent(this, MeuPerfil.class);
             }
 
-            else if (id == R.id.nav_sobre) {
-                Intent intent = new Intent(this, SobreNos.class);
+            if (intent != null) {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 intent.putExtra("nome", nome);
                 intent.putExtra("sexo", sexo);
                 startActivity(intent);
             }
-
-            else if (id == R.id.nav_sair) {
-                Intent intent = new Intent(this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                intent.putExtra("nome", nome);
-                intent.putExtra("sexo", sexo);
-                startActivity(intent);
-            }
-
-            else if (id == R.id.nav_perfil) {
-                Intent intent = new Intent(this, MeuPerfil.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                intent.putExtra("nome", nome);
-                intent.putExtra("sexo", sexo);
-                startActivity(intent);
-            }
-
 
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         });
 
-        // Acoes Cotidanas
+        // Configuração dos cliques nas Lições
+        configurarCliquesLicoes(nome, sexo);
+    }
+
+    /**
+     * Sorteia uma frase e define o personagem no corpo do menu lateral.
+     */
+    private void configurarMenuDinamico(String sexo) {
+        TextView tvFrase = navigationView.findViewById(R.id.tvFraseMenu);
+
+
+        // Sorteio da frase motivacional
+        if (tvFrase != null) {
+            String[] frases = {
+                    "Você brilha muito! ✨",
+                    "Pronto para aprender algo novo? 🍎",
+                    "Comer bem é super divertido! 🥦",
+                    "Qual será sua descoberta de hoje? 🧐",
+                    "Você é nota dez! 🌟",
+                    "Vamos brilhar nas lições hoje! ✍️"
+            };
+
+            int indice = new Random().nextInt(frases.length);
+            tvFrase.setText(frases[indice]);
+        }
+    }
+
+    private void configurarCliquesLicoes(String nome, String sexo) {
+        // Ações Cotidianas
         cardacoes = findViewById(R.id.cardacoes);
         imageacoes = findViewById(R.id.imagacoes);
         textacoes = findViewById(R.id.textacoes);
 
-        View.OnClickListener abrirFale = v -> {
+        View.OnClickListener abrirAcoes = v -> {
             Intent intent = new Intent(Licoes.this, AcoesCotidianas.class);
             intent.putExtra("nome", nome);
             intent.putExtra("sexo", sexo);
             startActivity(intent);
         };
-
-        cardacoes.setOnClickListener(abrirFale);
-        imageacoes.setOnClickListener(abrirFale);
-        textacoes.setOnClickListener(abrirFale);
+        if(cardacoes != null) cardacoes.setOnClickListener(abrirAcoes);
 
         // Preservando a Natureza
         cardpreservarr = findViewById(R.id.cardpreservar);
@@ -153,12 +155,9 @@ public class Licoes extends AppCompatActivity {
             intent.putExtra("sexo", sexo);
             startActivity(intent);
         };
+        if(cardpreservarr != null) cardpreservarr.setOnClickListener(abrirPreservar);
 
-        cardpreservarr.setOnClickListener(abrirPreservar);
-        imagepreservar.setOnClickListener(abrirPreservar);
-        textpreservar.setOnClickListener(abrirPreservar);
-
-        // Voocabulario
+        // Vocabulário
         cardvocabulario = findViewById(R.id.cardvocabulario);
         imagevocabulario = findViewById(R.id.imagevocabulario);
         textvocabulario = findViewById(R.id.textvocabulario);
@@ -169,10 +168,7 @@ public class Licoes extends AppCompatActivity {
             intent.putExtra("sexo", sexo);
             startActivity(intent);
         };
-
-        cardvocabulario.setOnClickListener(abrirVocabulario);
-        imagevocabulario.setOnClickListener(abrirVocabulario);
-        textvocabulario.setOnClickListener(abrirVocabulario);
+        if(cardvocabulario != null) cardvocabulario.setOnClickListener(abrirVocabulario);
 
         // Matemática
         cardmatematica = findViewById(R.id.cardmatematica);
@@ -185,10 +181,6 @@ public class Licoes extends AppCompatActivity {
             intent.putExtra("sexo", sexo);
             startActivity(intent);
         };
-
-        cardmatematica.setOnClickListener(abrirMatematica);
-        imagematematica.setOnClickListener(abrirMatematica);
-        textmatematica.setOnClickListener(abrirMatematica);
-
+        if(cardmatematica != null) cardmatematica.setOnClickListener(abrirMatematica);
     }
 }

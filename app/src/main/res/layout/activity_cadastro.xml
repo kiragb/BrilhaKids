@@ -168,15 +168,26 @@
             android:id="@+id/btnCadastrar"
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="12dp"
             android:backgroundTint="#D30326"
             android:fontFamily="@font/adigianaui"
             android:text="Criar Conta"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/tvJaPossuiCadastro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Já possui cadastro? Faça login"
+            android:textColor="#D50326"
+            android:textSize="14sp"
+            android:fontFamily="@font/adigianaui"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true" />
 
-        <!-- Esqueceu e Criar Conta -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

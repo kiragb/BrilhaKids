@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@drawable/bg_branco_arredondado"> <!-- Certifique-se de ter um fundo branco arredondado -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guia de Cores ✨"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#2E0084"
+        android:fontFamily="@font/adigianaui"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dp"/>
+
+    <!-- Item Azul -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_marginBottom="10dp">
+        <View android:layout_width="20dp" android:layout_height="20dp" android:background="@drawable/bg_azul_arredondado"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Jogos Virtuais" android:textSize="16sp" android:fontFamily="@font/adigianaui" android:textColor="#000000"/>
+    </LinearLayout>
+
+    <!-- Item Rosa -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_marginBottom="10dp">
+        <View android:layout_width="20dp" android:layout_height="20dp" android:background="@drawable/bg_rosa_arredondado"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Lições e Estudos" android:textSize="16sp" android:fontFamily="@font/adigianaui" android:textColor="#000000"/>
+    </LinearLayout>
+
+    <!-- Item Amarelo -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_marginBottom="10dp">
+        <View android:layout_width="20dp" android:layout_height="20dp" android:background="@drawable/bg_amarelo_arredondado"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Músicas Legais" android:textSize="16sp" android:fontFamily="@font/adigianaui" android:textColor="#000000"/>
+    </LinearLayout>
+
+    <!-- Item Verde -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_marginBottom="10dp">
+        <View android:layout_width="20dp" android:layout_height="20dp" android:background="@drawable/bg_verde_arredondado"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Jogos Manuais" android:textSize="16sp" android:fontFamily="@font/adigianaui" android:textColor="#000000"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnFecharGuia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Entendi!"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#00B050"
+        android:textColor="#FFFFFF"/>
+
+</LinearLayout>

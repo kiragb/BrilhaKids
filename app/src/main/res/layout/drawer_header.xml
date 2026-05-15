@@ -2,20 +2,31 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
-    android:background="#2DA33E"
+    android:layout_height="200dp"
     android:orientation="vertical"
-    android:gravity="bottom"
-    android:padding="16dp">
+    android:background="@drawable/gradient_menu_header"
+    android:gravity="center"
+    android:padding="20dp">
 
     <TextView
+        android:id="@+id/textView_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Bem-vindo!"
-        android:textSize="30sp"
-        android:textColor="#fff"
-        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
         android:textStyle="bold"
         android:fontFamily="@font/adigianaui"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"/>
+        android:text="Faça login para continuar"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:fontFamily="@font/adigianaui"
+        android:gravity="center"
+        android:layout_marginTop="4dp" />
 
 </LinearLayout>

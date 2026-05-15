@@ -16,6 +16,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Random;
+
 public class Vocabulario extends AppCompatActivity {
 
     private NavigationView navigationView;
@@ -42,6 +44,8 @@ public class Vocabulario extends AppCompatActivity {
         menuIcon = findViewById(R.id.menuIcon);
         navigationView = findViewById(R.id.navigation_view);
         navigationView.setItemIconTintList(null);
+
+        configurarFraseDinamica();
 
         menuIcon.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
 
@@ -167,5 +171,22 @@ public class Vocabulario extends AppCompatActivity {
 
 
 
+    }
+
+    private void configurarFraseDinamica() {
+        TextView tvFrase = navigationView.findViewById(R.id.tvFraseMenu);
+        if (tvFrase != null) {
+            String[] frases = {
+                    "Você brilha muito! ✨",
+                    "Pronto para aprender algo novo? 🍎",
+                    "Comer bem é super divertido! 🥦",
+                    "Qual será sua descoberta de hoje? 🧐",
+                    "Você é nota dez! 🌟",
+                    "Que tal um jogo agora? 🎮"
+            };
+
+            int indice = new Random().nextInt(frases.length);
+            tvFrase.setText(frases[indice]);
+        }
     }
 }

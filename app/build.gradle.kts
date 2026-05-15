@@ -35,6 +35,8 @@ android {
 dependencies {
     implementation("com.google.firebase:firebase-auth:22.3.1")
     implementation("com.google.firebase:firebase-database:20.3.0")
+    implementation(libs.activity.ktx)
+    implementation(libs.androidx.constraintlayout)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
@@ -44,6 +46,7 @@ dependencies {
 
     implementation ("androidx.media3:media3-exoplayer:1.3.1")
     implementation ("androidx.media3:media3-ui:1.3.1")
+    implementation(libs.play.services.maps3d)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)

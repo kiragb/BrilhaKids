@@ -1,25 +1,26 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Random; // Import necessário para o sorteio
 
 public class MainLoggedActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
-    private ImageView menuIcon, cardLicoes, imagelicoes, cardMusicas,
-    imagemusic, cardJogosManuais, imagejogosmanuais, imagedica, carddicas,
-    cardfale, imagefale, cardJogos, imagejogosvirtuais;
-    private TextView textlicoes, TextMusic, textjogosmanuais, textdica, textfale, textjogosvirtuais;
+    private ImageView menuIcon;
     private NavigationView navigationView;
 
     @Override
@@ -27,187 +28,142 @@ public class MainLoggedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_logged);
 
-        // Referências
+        // --- 1. RECUPERAR DADOS (Intent ou SharedPreferences) ---
+        String nomeExtra = getIntent().getStringExtra("nome");
+        String sexoExtra = getIntent().getStringExtra("sexo");
+
+        if (nomeExtra == null || nomeExtra.isEmpty()) {
+            SharedPreferences prefs = getSharedPreferences("BrilhaKidsPrefs", Context.MODE_PRIVATE);
+            nomeExtra = prefs.getString("nome_usuario", "Pequeno Explorador");
+            sexoExtra = prefs.getString("sexo_usuario", "Masculino");
+        }
+
+        final String nome = nomeExtra.trim();
+        final String sexo = sexoExtra.trim();
+
+        // --- 2. REFERÊNCIAS ---
         drawerLayout = findViewById(R.id.drawer_layout);
         menuIcon = findViewById(R.id.menuIcon);
         navigationView = findViewById(R.id.navigation_view);
         navigationView.setItemIconTintList(null);
 
+        // --- 3. CONFIGURAÇÃO DO HEADER, AVATAR E FRASES ---
+        configurarInterface(nome, sexo);
+        configurarFraseDinamica(); // Nova função para preencher o espaço do menu
+
+        // --- 4. LISTENERS E NAVEGAÇÃO ---
         menuIcon.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
-
-        View headerView = navigationView.getHeaderView(0);
-        String nome = getIntent().getStringExtra("nome");
-        String sexo = getIntent().getStringExtra("sexo");
-
-        if (sexo != null) {
-            ImageView imagePerfil = headerView.findViewById(R.id.imagePerfil);
-            if (sexo.equalsIgnoreCase("Masculino")) {
-                imagePerfil.setImageResource(R.drawable.meny);
-            } else if (sexo.equalsIgnoreCase("Feminino")) {
-                imagePerfil.setImageResource(R.drawable.menx);
-            }
-        }
-
-        if (nome != null) {
-            TextView saudacao = findViewById(R.id.tvOlaUsuario);
-            if (saudacao != null) {
-                saudacao.setText("Olá! " + nome + ", tudo bem?");
-            }
-
-            TextView textViewNome = headerView.findViewById(R.id.textViewNomeUsuario);
-            if (textViewNome != null) {
-                textViewNome.setText("Olá, " + nome + "!");
-            }
-        }
 
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
+            Intent intent = null;
 
             if (id == R.id.nav_home) {
-                Intent intent = new Intent(this, MainLoggedActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                intent.putExtra("nome", nome);
-                intent.putExtra("sexo", sexo);
-                startActivity(intent);
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
             }
             else if (id == R.id.nav_senha) {
-                Intent intent = new Intent(this, AlterarSenhaActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                intent.putExtra("nome", nome);
-                intent.putExtra("sexo", sexo);
-                startActivity(intent);
+                intent = new Intent(this, AlterarSenhaActivity.class);
             }
-
             else if (id == R.id.nav_sobre) {
-                Intent intent = new Intent(this, SobreNos.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                intent.putExtra("nome", nome);
-                intent.putExtra("sexo", sexo);
-                startActivity(intent);
+                intent = new Intent(this, SobreNos.class);
             }
-
-            else if (id == R.id.nav_sair) {
-                Intent intent = new Intent(this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                intent.putExtra("nome", nome);
-                intent.putExtra("sexo", sexo);
-                startActivity(intent);
-            }
-
             else if (id == R.id.nav_perfil) {
-                Intent intent = new Intent(this, MeuPerfil.class);
+                intent = new Intent(this, MeuPerfil.class);
+            }
+            else if (id == R.id.nav_sair) {
+                realizarLogout();
+                return true;
+            }
+
+            if (intent != null) {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 intent.putExtra("nome", nome);
                 intent.putExtra("sexo", sexo);
                 startActivity(intent);
             }
-
 
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         });
 
-        // jogos virtuais
-        cardJogos = findViewById(R.id.cardJogos);
-        imagejogosvirtuais = findViewById(R.id.imagejogosvirtuais);
-        textjogosvirtuais = findViewById(R.id.textjogosvirtuais);
+        // --- 5. CONFIGURAÇÃO DOS CARDS ---
+        configurarCard(JogosVirtuais.class, nome, sexo, R.id.cardJogos, R.id.imagejogosvirtuais, R.id.textjogosvirtuais);
+        configurarCard(Licoes.class, nome, sexo, R.id.cardLicoes, R.id.imagelicoes, R.id.textlicoes);
+        configurarCard(Musicas.class, nome, sexo, R.id.cardMusicas, R.id.imagemusic, R.id.TextMusic);
+        configurarCard(Tutoriais.class, nome, sexo, R.id.cardJogosManuais, R.id.imagejogosmanuais, R.id.textjogosmanuais);
+        configurarCard(Dicas.class, nome, sexo, R.id.carddicas, R.id.imagedica, R.id.textdica);
+        configurarCard(FaleConosco.class, nome, sexo, R.id.cardfale, R.id.imagefale, R.id.textfale);
+    }
 
-        View.OnClickListener abrirJogos = v -> {
-            Intent intent = new Intent(MainLoggedActivity.this, JogosVirtuais.class);
-            intent.putExtra("nome", nome);
-            intent.putExtra("sexo", sexo);
-            startActivity(intent);
-        };
+    private void configurarInterface(String nome, String sexo) {
+        if (navigationView.getHeaderCount() > 0) {
+            View headerView = navigationView.getHeaderView(0);
+            ImageView imagePerfil = headerView.findViewById(R.id.imagePerfil);
+            TextView textViewNome = headerView.findViewById(R.id.textViewNomeUsuario);
 
-        cardJogos.setOnClickListener(abrirJogos);
-        imagejogosvirtuais.setOnClickListener(abrirJogos);
-        textjogosvirtuais.setOnClickListener(abrirJogos);
+            if (imagePerfil != null) {
+                imagePerfil.setImageResource(sexo.equalsIgnoreCase("Masculino") ? R.drawable.meny : R.drawable.menx);
+            }
+            if (textViewNome != null) {
+                textViewNome.setText("Olá, " + nome + "!");
+            }
+        }
 
-        // Lições
-        cardLicoes = findViewById(R.id.cardLicoes);
-        imagelicoes = findViewById(R.id.imagelicoes);
-        textlicoes = findViewById(R.id.textlicoes);
+        TextView saudacao = findViewById(R.id.tvOlaUsuario);
+        if (saudacao != null) {
+            saudacao.setText("Olá! " + nome + ", tudo bem?");
+        }
+    }
 
-        View.OnClickListener abrirLicoes = v -> {
-            Intent intent = new Intent(MainLoggedActivity.this, Licoes.class);
-            intent.putExtra("nome", nome);
-            intent.putExtra("sexo", sexo);
-            startActivity(intent);
-        };
-
-        cardLicoes.setOnClickListener(abrirLicoes);
-        imagelicoes.setOnClickListener(abrirLicoes);
-        textlicoes.setOnClickListener(abrirLicoes);
-
-        // Músicas
-        cardMusicas = findViewById(R.id.cardMusicas);
-        imagemusic = findViewById(R.id.imagemusic);
-        TextMusic = findViewById(R.id.TextMusic);
-
-        View.OnClickListener abrirMusicas = v -> {
-            Intent intent = new Intent(MainLoggedActivity.this, Musicas.class);
-            intent.putExtra("nome", nome);
-            intent.putExtra("sexo", sexo);
-            startActivity(intent);
-        };
-
-        cardMusicas.setOnClickListener(abrirMusicas);
-        imagemusic.setOnClickListener(abrirMusicas);
-        TextMusic.setOnClickListener(abrirMusicas);
-
-        // Jogos Manuais
-        cardJogosManuais = findViewById(R.id.cardJogosManuais);
-        imagejogosmanuais = findViewById(R.id.imagejogosmanuais);
-        textjogosmanuais = findViewById(R.id.textjogosmanuais);
-
-        View.OnClickListener abrirJogosManuais = v -> {
-            Intent intent = new Intent(MainLoggedActivity.this, Tutoriais.class);
-            intent.putExtra("nome", nome);
-            intent.putExtra("sexo", sexo);
-            startActivity(intent);
-        };
-
-        cardJogosManuais.setOnClickListener(abrirJogosManuais);
-        imagejogosmanuais.setOnClickListener(abrirJogosManuais);
-        textjogosmanuais.setOnClickListener(abrirJogosManuais);
-
-
-        // Dicas
-        carddicas = findViewById(R.id.carddicas);
-        imagedica = findViewById(R.id.imagedica);
-        textdica = findViewById(R.id.textdica);
-    
-        View.OnClickListener abrirDicas = v -> {
-            Intent intent = new Intent(MainLoggedActivity.this, Dicas.class);
-            intent.putExtra("nome", nome);
-            intent.putExtra("sexo", sexo);
-            startActivity(intent);
-        };
-    
-            carddicas.setOnClickListener(abrirDicas);
-            imagedica.setOnClickListener(abrirDicas);
-            textdica.setOnClickListener(abrirDicas);
-
-            // Fale
-            cardfale = findViewById(R.id.cardfale);
-            imagefale = findViewById(R.id.imagefale);
-            textfale = findViewById(R.id.textfale);
-
-            View.OnClickListener abrirFale = v -> {
-                Intent intent = new Intent(MainLoggedActivity.this, FaleConosco.class);
-                intent.putExtra("nome", nome);
-                intent.putExtra("sexo", sexo);
-                startActivity(intent);
+    /**
+     * Sorteia uma frase motivadora para preencher o rodapé do menu lateral.
+     */
+    private void configurarFraseDinamica() {
+        TextView tvFrase = navigationView.findViewById(R.id.tvFraseMenu);
+        if (tvFrase != null) {
+            String[] frases = {
+                    "Você brilha muito! ✨",
+                    "Pronto para aprender algo novo? 🍎",
+                    "Comer bem é super divertido! 🥦",
+                    "Qual será sua descoberta de hoje? 🧐",
+                    "Você é nota dez! 🌟",
+                    "Que tal um jogo agora? 🎮"
             };
 
-            cardfale.setOnClickListener(abrirFale);
-            imagefale.setOnClickListener(abrirFale);
-            textfale.setOnClickListener(abrirFale);
+            int indice = new Random().nextInt(frases.length);
+            tvFrase.setText(frases[indice]);
+        }
+    }
+
+    private void realizarLogout() {
+        FirebaseAuth.getInstance().signOut();
+        SharedPreferences prefs = getSharedPreferences("BrilhaKidsPrefs", Context.MODE_PRIVATE);
+        prefs.edit().clear().apply();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
+
+    private void configurarCard(Class<?> activityDestino, String nome, String sexo, int... ids) {
+        View.OnClickListener listener = v -> {
+            Intent intent = new Intent(MainLoggedActivity.this, activityDestino);
+            intent.putExtra("nome", nome);
+            intent.putExtra("sexo", sexo);
+            startActivity(intent);
+        };
+
+        for (int id : ids) {
+            View view = findViewById(id);
+            if (view != null) view.setOnClickListener(listener);
+        }
     }
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+        if (drawerLayout != null && drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
