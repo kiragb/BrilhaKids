@@ -45,6 +45,9 @@ public class Musicas extends AppCompatActivity {
         navigationView = findViewById(R.id.navigation_view);
         navigationView.setItemIconTintList(null);
 
+        configurarFraseDinamica();
+
+
         // Abre o menu ao clicar no ícone
         menuIcon.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
 
@@ -200,5 +203,22 @@ public class Musicas extends AppCompatActivity {
         if(cardchefe != null) cardchefe.setOnClickListener(abrirChefe);
         if(imagechefe != null) imagechefe.setOnClickListener(abrirChefe);
         if(textchefe != null) textchefe.setOnClickListener(abrirChefe);
+    }
+
+    private void configurarFraseDinamica() {
+        TextView tvFrase = navigationView.findViewById(R.id.tvFraseMenu);
+        if (tvFrase != null) {
+            String[] frases = {
+                    "Você brilha muito! ✨",
+                    "Pronto para aprender algo novo? 🍎",
+                    "Comer bem é super divertido! 🥦",
+                    "Qual será sua descoberta de hoje? 🧐",
+                    "Você é nota dez! 🌟",
+                    "Que tal um jogo agora? 🎮"
+            };
+
+            int indice = new Random().nextInt(frases.length);
+            tvFrase.setText(frases[indice]);
+        }
     }
 }

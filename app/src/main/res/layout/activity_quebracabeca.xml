@@ -228,7 +228,6 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="290dp"
@@ -248,7 +247,7 @@
         app:itemTextAppearance="@style/NavDrawerText_Kids">
 
         <include
-            layout="@layout/nav_footer_bloco"
+            layout="@layout/nav_footer_lapis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"

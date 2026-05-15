@@ -20,6 +20,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Random;
+
 public class Silabas extends AppCompatActivity {
 
     private NavigationView navigationView;
@@ -48,6 +50,8 @@ public class Silabas extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         menuIcon = findViewById(R.id.menuIcon);
         navigationView = findViewById(R.id.navigation_view);
+
+        configurarFraseDinamica();
 
         // Supondo que o id no seu XML seja checkboxConcluidoSilabas
         checkboxConcluido = findViewById(R.id.checkboxConcluidoSilabas);
@@ -125,6 +129,23 @@ public class Silabas extends AppCompatActivity {
             if (nome != null && textViewNome != null) {
                 textViewNome.setText("Olá, " + nome + "!");
             }
+        }
+    }
+
+    private void configurarFraseDinamica() {
+        TextView tvFrase = navigationView.findViewById(R.id.tvFraseMenu);
+        if (tvFrase != null) {
+            String[] frases = {
+                    "Você brilha muito! ✨",
+                    "Pronto para aprender algo novo? 🍎",
+                    "Comer bem é super divertido! 🥦",
+                    "Qual será sua descoberta de hoje? 🧐",
+                    "Você é nota dez! 🌟",
+                    "Que tal um jogo agora? 🎮"
+            };
+
+            int indice = new Random().nextInt(frases.length);
+            tvFrase.setText(frases[indice]);
         }
     }
 

@@ -322,6 +322,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="290dp"
@@ -338,39 +339,15 @@
         app:itemHorizontalPadding="26dp"
         app:itemIconPadding="22dp"
         app:itemVerticalPadding="14dp"
-        app:itemTextAppearance="@style/NavDrawerText_Kids"  >
+        app:itemTextAppearance="@style/NavDrawerText_Kids">
 
-        <!-- Container Dinâmico no Rodapé -->
-        <LinearLayout
+        <include
+            layout="@layout/nav_footer_estrela"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:orientation="vertical"
-            android:padding="20dp"
-            android:gravity="center">
-
-            <ImageView
-                android:id="@+id/ivPersonagemMenu"
-                android:layout_width="220dp"
-                android:layout_height="220dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/estrela"
-                android:scaleType="fitCenter"/>
-
-            <!-- Frase acompanhando a imagem -->
-            <TextView
-                android:id="@+id/tvFraseMenu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Você brilha muito! ✨"
-                android:textAlignment="center"
-                android:textColor="#01420a"
-                android:textSize="20sp"
-                android:fontFamily="@font/adigianaui"
-                android:textStyle="bold|italic" />
-
-        </LinearLayout>
-
+            android:layout_marginBottom="40dp"/>
 
     </com.google.android.material.navigation.NavigationView>
+
 </androidx.drawerlayout.widget.DrawerLayout>

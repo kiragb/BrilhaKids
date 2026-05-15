@@ -46,12 +46,12 @@ public class Jogodavelha extends AppCompatActivity {
             });
         }
 
-        configurarFraseDinamica();
-
         // --- REFERÊNCIAS ---
         drawerLayout = findViewById(R.id.drawer_layout);
         menuIcon = findViewById(R.id.menuIcon);
         navigationView = findViewById(R.id.navigation_view);
+
+        configurarFraseDinamica();
 
         // Supondo que o id no seu XML de Jogo da Velha seja checkboxConcluidoVelha
         checkboxConcluido = findViewById(R.id.checkboxConcluidoVelha);

@@ -161,6 +161,7 @@
         android:background="#EBF0EB"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/menu_drawer_logged"
+
         app:itemBackground="@drawable/menu_item_gradient"
         app:itemIconTint="#FFFFFF"
         app:itemTextColor="#01420a"
@@ -168,6 +169,14 @@
         app:itemHorizontalPadding="26dp"
         app:itemIconPadding="22dp"
         app:itemVerticalPadding="14dp"
-        app:itemTextAppearance="@style/NavDrawerText_Kids" />
+        app:itemTextAppearance="@style/NavDrawerText_Kids">
 
+        <include
+            layout="@layout/nav_footer_estrela"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="40dp"/>
+
+    </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -284,7 +284,7 @@
             app:itemTextAppearance="@style/NavDrawerText_Kids">
 
             <include
-                layout="@layout/nav_footer_bloco"
+                layout="@layout/nav_footer_lapis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
