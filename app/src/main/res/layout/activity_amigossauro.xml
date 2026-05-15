@@ -170,7 +170,7 @@
         app:itemTextAppearance="@style/NavDrawerText_Kids">
 
         <include
-            layout="@layout/nav_footer_estrela"
+            layout="@layout/nav_footer_abelha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
