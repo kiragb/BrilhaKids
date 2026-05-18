@@ -47,6 +47,7 @@ dependencies {
     implementation ("androidx.media3:media3-exoplayer:1.3.1")
     implementation ("androidx.media3:media3-ui:1.3.1")
     implementation(libs.play.services.maps3d)
+    implementation("nl.dionsegijn:konfetti-xml:2.0.2")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
