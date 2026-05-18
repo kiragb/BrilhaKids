@@ -140,7 +140,6 @@ public class MainLoggedActivity extends AppCompatActivity {
                 .spread(90)
                 .setSpeedBetween(2f, 7f) // Velocidade um pouco maior e mais variada
                 // CORREÇÃO: Usamos Position.Relative(0.0, 0.0) para definir o ponto de partida
-                // e o método .between() para criar uma linha do X=0.0 ao X=1.0 (largura total) no topo (Y=0.0)
                 .position(new Position.Relative(0.0, 0.0).between(new Position.Relative(1.0, 0.0)))
                 .build();
 
@@ -169,7 +168,6 @@ public class MainLoggedActivity extends AppCompatActivity {
 
     private void configurarFraseEPersonagemMenu(String sexo) {
         TextView tvFrase = navigationView.findViewById(R.id.tvFraseMenu);
-        ImageView ivPersonagemFooter = navigationView.findViewById(R.id.ivPersonagemMenu);
 
         if (tvFrase != null) {
             String[] frases = {
@@ -179,10 +177,6 @@ public class MainLoggedActivity extends AppCompatActivity {
                     "Qual será sua descoberta de hoje? 🧐"
             };
             tvFrase.setText(frases[new Random().nextInt(frases.length)]);
-        }
-
-        if (ivPersonagemFooter != null) {
-            ivPersonagemFooter.setImageResource(sexo.equalsIgnoreCase("Masculino") ? R.drawable.meny : R.drawable.menx);
         }
     }
 
